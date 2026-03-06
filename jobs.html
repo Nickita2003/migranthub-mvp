@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск работы — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html">Кабинет</a>
+                <a href="jobs.html" class="active">Вакансии</a>
+                <a href="housing.html">Жильё</a>
+                <a href="courses.html">Курсы</a>
+                <a href="legal.html">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar Filters -->
+                <aside class="dashboard-sidebar">
+                    <div class="filter-card">
+                        <h3 class="filter-title">
+                            <i class="fas fa-filter"></i>
+                            Фильтры
+                        </h3>
+                        
+                        <form id="job-filters" class="filter-form">
+                            <!-- Search -->
+                            <div class="form-group">
+                                <label class="form-label">Поиск</label>
+                                <div class="search-wrapper">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="text" class="form-input" placeholder="Должность или компания">
+                                </div>
+                            </div>
+                            
+                            <!-- Location -->
+                            <div class="form-group">
+                                <label class="form-label">Город</label>
+                                <select class="form-input">
+                                    <option value="">Все города</option>
+                                    <option value="moscow">Москва</option>
+                                    <option value="spb">Санкт-Петербург</option>
+                                    <option value="kazan">Казань</option>
+                                    <option value="ekb">Екатеринбург</option>
+                                    <option value="novosib">Новосибирск</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Salary -->
+                            <div class="form-group">
+                                <label class="form-label">Зарплата</label>
+                                <select class="form-input">
+                                    <option value="">Любая</option>
+                                    <option value="30000">от 30 000 ₽</option>
+                                    <option value="50000">от 50 000 ₽</option>
+                                    <option value="80000">от 80 000 ₽</option>
+                                    <option value="100000">от 100 000 ₽</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Industry -->
+                            <div class="form-group">
+                                <label class="form-label">Сфера</label>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="industry" value="construction">
+                                        <span>🏗️ Строительство</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="industry" value="logistics">
+                                        <span>🚚 Логистика</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="industry" value="cleaning">
+                                        <span>🧹 ЖКХ/Клининг</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="industry" value="production">
+                                        <span>🏭 Производство</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="industry" value="trade">
+                                        <span>🛒 Торговля</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="industry" value="food">
+                                        <span>🍽️ Общепит</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Housing -->
+                            <div class="form-group">
+                                <label class="form-label">Условия</label>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="housing" value="provided">
+                                        <span>🏠 Жильё предоставляется</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="housing" value="official">
+                                        <span>📄 Официальное оформление</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="housing" value="verified">
+                                        <span>✅ Проверенный работодатель</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Buttons -->
+                            <div class="filter-actions">
+                                <button type="submit" class="btn btn-primary btn-full">
+                                    <i class="fas fa-search"></i>
+                                    Применить
+                                </button>
+                                <button type="reset" class="btn btn-outline btn-full">
+                                    <i class="fas fa-undo"></i>
+                                    Сбросить
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Promo Card -->
+                    <div class="sidebar-promo">
+                        <div class="promo-badge">Premium</div>
+                        <h4>VIP-доступ к вакансиям</h4>
+                        <p>Первыми откликайтесь на лучшие предложения</p>
+                        <div class="promo-price">499 ₽/мес</div>
+                        <a href="payments.html" class="btn btn-primary btn-sm btn-full">Подключить</a>
+                    </div>
+                </aside>
+
+                <!-- Jobs Content -->
+                <section class="dashboard-content">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="page-header-content">
+                            <h1>Поиск работы</h1>
+                            <p>Проверенные вакансии от работодателей</p>
+                        </div>
+                        <div class="page-header-actions">
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            <select class="sort-select">
+                                <option value="newest">Сначала новые</option>
+                                <option value="salary">По зарплате</option>
+                                <option value="relevant">По релевантности</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="jobs-stats">
+                        <span class="jobs-count">Найдено <strong>127</strong> вакансий</span>
+                        <div class="jobs-filters-active">
+                            <span class="filter-tag">
+                                Москва
+                                <button class="filter-remove"><i class="fas fa-times"></i></button>
+                            </span>
+                            <span class="filter-tag">
+                                от 50 000 ₽
+                                <button class="filter-remove"><i class="fas fa-times"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Jobs Grid -->
+                    <div class="jobs-grid" id="jobs-container">
+                        <!-- Job Card 1 -->
+                        <div class="job-card verified">
+                            <div class="job-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="job-header">
+                                <div class="job-title-group">
+                                    <h3 class="job-title">Разнорабочий на стройку</h3>
+                                    <span class="job-salary">от 60 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="job-company">
+                                <div class="company-info">
+                                    <span class="company-name">СтройМастер</span>
+                                    <span class="company-rating">
+                                        <i class="fas fa-star"></i>
+                                        4.8 (124 отзыва)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="job-details">
+                                <span class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Москва
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-clock"></i>
+                                    Полная занятость
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-home"></i>
+                                    Жильё предоставляется
+                                </span>
+                            </div>
+                            <div class="job-requirements">
+                                <h4>Требования:</h4>
+                                <ul>
+                                    <li>Опыт работы от 1 года</li>
+                                    <li>Физическая выносливость</li>
+                                    <li>Документы в порядке</li>
+                                </ul>
+                            </div>
+                            <div class="job-benefits">
+                                <h4>Условия:</h4>
+                                <ul>
+                                    <li>Официальное оформление</li>
+                                    <li>Выплаты 2 раза в месяц</li>
+                                    <li>Общежитие бесплатно</li>
+                                </ul>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-date">Опубликовано: 2 часа назад</span>
+                                <div class="job-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Откликнуться
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 2 -->
+                        <div class="job-card verified">
+                            <div class="job-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="job-header">
+                                <div class="job-title-group">
+                                    <h3 class="job-title">Грузчик на склад</h3>
+                                    <span class="job-salary">от 50 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="job-company">
+                                <div class="company-info">
+                                    <span class="company-name">ЛогистикПром</span>
+                                    <span class="company-rating">
+                                        <i class="fas fa-star"></i>
+                                        4.6 (89 отзывов)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="job-details">
+                                <span class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Санкт-Петербург
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-clock"></i>
+                                    Сменный график
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-home"></i>
+                                    Жильё предоставляется
+                                </span>
+                            </div>
+                            <div class="job-requirements">
+                                <h4>Требования:</h4>
+                                <ul>
+                                    <li>Без опыта</li>
+                                    <li>Ответственность</li>
+                                    <li>Патент</li>
+                                </ul>
+                            </div>
+                            <div class="job-benefits">
+                                <h4>Условия:</h4>
+                                <ul>
+                                    <li>Еженедельные выплаты</li>
+                                    <li>Питание за счёт компании</li>
+                                    <li>ДМС после 3 месяцев</li>
+                                </ul>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-date">Опубликовано: 5 часов назад</span>
+                                <div class="job-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Откликнуться
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 3 -->
+                        <div class="job-card verified">
+                            <div class="job-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="job-header">
+                                <div class="job-title-group">
+                                    <h3 class="job-title">Уборщик помещений</h3>
+                                    <span class="job-salary">от 40 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="job-company">
+                                <div class="company-info">
+                                    <span class="company-name">КлинингСервис</span>
+                                    <span class="company-rating">
+                                        <i class="fas fa-star"></i>
+                                        4.5 (56 отзывов)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="job-details">
+                                <span class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Москва
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-clock"></i>
+                                    Неполный день
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-home"></i>
+                                    Жильё не предоставляется
+                                </span>
+                            </div>
+                            <div class="job-requirements">
+                                <h4>Требования:</h4>
+                                <ul>
+                                    <li>Без опыта</li>
+                                    <li>Аккуратность</li>
+                                    <li>Документы в порядке</li>
+                                </ul>
+                            </div>
+                            <div class="job-benefits">
+                                <h4>Условия:</h4>
+                                <ul>
+                                    <li>Гибкий график</li>
+                                    <li>Выплаты без задержек</li>
+                                    <li>Инвентарь предоставляется</li>
+                                </ul>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-date">Опубликовано: 1 день назад</span>
+                                <div class="job-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Откликнуться
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 4 -->
+                        <div class="job-card">
+                            <div class="job-header">
+                                <div class="job-title-group">
+                                    <h3 class="job-title">Повар на кухню</h3>
+                                    <span class="job-salary">от 55 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="job-company">
+                                <div class="company-info">
+                                    <span class="company-name">Ресторан "Восток"</span>
+                                    <span class="company-rating">
+                                        <i class="fas fa-star"></i>
+                                        4.3 (32 отзыва)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="job-details">
+                                <span class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Казань
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-clock"></i>
+                                    Полный день
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-home"></i>
+                                    Жильё предоставляется
+                                </span>
+                            </div>
+                            <div class="job-requirements">
+                                <h4>Требования:</h4>
+                                <ul>
+                                    <li>Опыт от 2 лет</li>
+                                    <li>Знание восточной кухни</li>
+                                    <li>Медицинская книжка</li>
+                                </ul>
+                            </div>
+                            <div class="job-benefits">
+                                <h4>Условия:</h4>
+                                <ul>
+                                    <li>Бесплатное питание</li>
+                                    <li>Проживание</li>
+                                    <li>Чаевые</li>
+                                </ul>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-date">Опубликовано: 2 дня назад</span>
+                                <div class="job-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Откликнуться
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 5 -->
+                        <div class="job-card verified">
+                            <div class="job-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="job-header">
+                                <div class="job-title-group">
+                                    <h3 class="job-title">Водитель-курьер</h3>
+                                    <span class="job-salary">от 70 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="job-company">
+                                <div class="company-info">
+                                    <span class="company-name">Доставка24</span>
+                                    <span class="company-rating">
+                                        <i class="fas fa-star"></i>
+                                        4.7 (201 отзыв)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="job-details">
+                                <span class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Москва
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-clock"></i>
+                                    Гибкий график
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-car"></i>
+                                    Авто предоставляется
+                                </span>
+                            </div>
+                            <div class="job-requirements">
+                                <h4>Требования:</h4>
+                                <ul>
+                                    <li>Права категории B</li>
+                                    <li>Опыт вождения от 3 лет</li>
+                                    <li>Знание города</li>
+                                </ul>
+                            </div>
+                            <div class="job-benefits">
+                                <h4>Условия:</h4>
+                                <ul>
+                                    <li>Ежедневные выплаты</li>
+                                    <li>Топливо за счёт компании</li>
+                                    <li>Бонусы за выполнение плана</li>
+                                </ul>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-date">Опубликовано: 3 дня назад</span>
+                                <div class="job-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Откликнуться
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Job Card 6 -->
+                        <div class="job-card verified">
+                            <div class="job-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="job-header">
+                                <div class="job-title-group">
+                                    <h3 class="job-title">Фасовщик на производство</h3>
+                                    <span class="job-salary">от 45 000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="job-company">
+                                <div class="company-info">
+                                    <span class="company-name">ПищеПром</span>
+                                    <span class="company-rating">
+                                        <i class="fas fa-star"></i>
+                                        4.4 (78 отзывов)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="job-details">
+                                <span class="job-detail">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Екатеринбург
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-clock"></i>
+                                    Сменный график
+                                </span>
+                                <span class="job-detail">
+                                    <i class="fas fa-home"></i>
+                                    Жильё предоставляется
+                                </span>
+                            </div>
+                            <div class="job-requirements">
+                                <h4>Требования:</h4>
+                                <ul>
+                                    <li>Без опыта</li>
+                                    <li>Внимательность</li>
+                                    <li>Санитарная книжка</li>
+                                </ul>
+                            </div>
+                            <div class="job-benefits">
+                                <h4>Условия:</h4>
+                                <ul>
+                                    <li>Официальное трудоустройство</li>
+                                    <li>Премии</li>
+                                    <li>Карьерный рост</li>
+                                </ul>
+                            </div>
+                            <div class="job-footer">
+                                <span class="job-date">Опубликовано: 4 дня назад</span>
+                                <div class="job-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Откликнуться
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-bookmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="page-btn">
+                            <i class="fas fa-chevron-left"></i>
+                            Назад
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">...</button>
+                        <button class="page-btn">12</button>
+                        <button class="page-btn">
+                            Вперёд
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/jobs.js"></script>
+</body>
+</html>

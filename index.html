@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MigrantHub — Единая экосистема для мигрантов в РФ</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#features" class="nav-link">Возможности</a>
+                <a href="#stats" class="nav-link">Статистика</a>
+                <a href="#how-it-works" class="nav-link">Как это работает</a>
+            </nav>
+            
+            <div class="header-actions">
+                <select class="language-selector" id="language-selector">
+                    <option value="ru">🇷🇺 RU</option>
+                    <option value="uz">🇺🇿 UZ</option>
+                    <option value="tg">🇹🇯 TG</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="kg">🇰🇬 KG</option>
+                </select>
+                
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn btn-outline">Войти</a>
+                    <a href="register.html" class="btn btn-primary">Регистрация</a>
+                </div>
+                
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background"></div>
+        
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-check"></i>
+                    <span>Проверенная платформа</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Единая экосистема для <span class="highlight">легальной адаптации</span> мигрантов в РФ
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Поиск работы, жилья и юридическая защита в одном приложении на родном языке.
+                </p>
+                
+                <div class="hero-cta">
+                    <a href="register.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i>
+                        Начать сейчас
+                    </a>
+                    <a href="#features" class="btn btn-white btn-lg">
+                        <i class="fas fa-play-circle"></i>
+                        Узнать больше
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat-item">
+                        <span class="stat-value">5.7M+</span>
+                        <span class="stat-label">Пользователей</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-value">10+</span>
+                        <span class="stat-label">Языков</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-value">80%</span>
+                        <span class="stat-label">Успех</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="app-header">
+                            <i class="fas fa-globe"></i>
+                            <span>MigrantHub</span>
+                        </div>
+                        <div class="app-body">
+                            <div class="app-card">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Работа</span>
+                            </div>
+                            <div class="app-card">
+                                <i class="fas fa-home"></i>
+                                <span>Жильё</span>
+                            </div>
+                            <div class="app-card">
+                                <i class="fas fa-book"></i>
+                                <span>Курсы</span>
+                            </div>
+                            <div class="app-card">
+                                <i class="fas fa-balance-scale"></i>
+                                <span>Юрист</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0 60L60 55C120 50 240 40 360 45C480 50 600 70 720 75C840 80 960 70 1080 65C1200 60 1320 60 1380 60L1440 60V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V60Z" fill="#ffffff"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Возможности</span>
+                <h2 class="section-title">Всё что нужно для жизни в России</h2>
+                <p class="section-subtitle">Комплексная поддержка на каждом этапе</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="feature-title">Работа и жильё</h3>
+                    <p class="feature-description">Проверенные вакансии и жильё с верификацией</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Верификация работодателей</li>
+                        <li><i class="fas fa-check"></i> Защита от мошенников</li>
+                        <li><i class="fas fa-check"></i> Отзывы и рейтинги</li>
+                    </ul>
+                    <a href="jobs.html" class="feature-link">
+                        Подробнее <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Обучение</h3>
+                    <p class="feature-description">Курсы русского языка и подготовка к экзаменам</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Курсы A1-B2</li>
+                        <li><i class="fas fa-check"></i> Экзамены на патент</li>
+                        <li><i class="fas fa-check"></i> Сертификаты</li>
+                    </ul>
+                    <a href="courses.html" class="feature-link">
+                        Подробнее <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="feature-title">Юридическая поддержка</h3>
+                    <p class="feature-description">Онлайн-консультации с миграционными юристами</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Консультации 24/7</li>
+                        <li><i class="fas fa-check"></i> Оформление документов</li>
+                        <li><i class="fas fa-check"></i> Видеовстречи</li>
+                    </ul>
+                    <a href="legal.html" class="feature-link">
+                        Подробнее <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="feature-title">Сообщество</h3>
+                    <p class="feature-description">Форумы и чаты для обмена опытом</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Форумы по странам</li>
+                        <li><i class="fas fa-check"></i> Чаты поддержки</li>
+                        <li><i class="fas fa-check"></i> Наставничество</li>
+                    </ul>
+                    <a href="community.html" class="feature-link">
+                        Подробнее <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge section-badge-light">Масштаб проблемы</span>
+                <h2 class="section-title section-title-light">Почему MigrantHub необходим</h2>
+                <p class="section-subtitle section-subtitle-light">Данные МВД РФ, 2024-2026</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-value">5,7 млн</div>
+                    <div class="stat-label">Иностранцев в РФ</div>
+                    <div class="stat-source">МВД РФ, 2026</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-plane-departure"></i>
+                    </div>
+                    <div class="stat-value">70+ тыс.</div>
+                    <div class="stat-label">Выдворено за нарушения</div>
+                    <div class="stat-source">МВД РФ, 2025</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-ruble-sign"></i>
+                    </div>
+                    <div class="stat-value">3,1 трлн ₽</div>
+                    <div class="stat-label">Ущерб бюджету</div>
+                    <div class="stat-source">Счётная палата</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon-wrapper">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="stat-value">68%</div>
+                    <div class="stat-label">Не знают русский (A2)</div>
+                    <div class="stat-source">ВШЭ, 2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Процесс</span>
+                <h2 class="section-title">Как это работает</h2>
+                <p class="section-subtitle">3 простых шага к легальной жизни</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon-wrapper">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="step-title">Регистрация</h3>
+                    <p class="step-description">Создайте аккаунт за 2 минуты</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon-wrapper">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="step-title">Поиск</h3>
+                    <p class="step-description">Найдите работу и жильё</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon-wrapper">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="step-title">Легализация</h3>
+                    <p class="step-description">Оформите документы</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="about">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Готовы начать?</h2>
+                <p class="cta-subtitle">Присоединяйтесь к тысячам мигрантов</p>
+                <div class="cta-buttons">
+                    <a href="register.html" class="btn btn-white btn-lg">
+                        <i class="fas fa-rocket"></i>
+                        Зарегистрироваться бесплатно
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span class="logo-text">MigrantHub</span>
+                    </div>
+                    <p class="footer-description">
+                        Единая экосистема для легальной адаптации мигрантов в РФ
+                    </p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Навигация</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Возможности</a></li>
+                        <li><a href="#stats">Статистика</a></li>
+                        <li><a href="login.html">Войти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Сервисы</h4>
+                    <ul class="footer-links">
+                        <li><a href="jobs.html">Работа</a></li>
+                        <li><a href="housing.html">Жильё</a></li>
+                        <li><a href="courses.html">Курсы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-title">Контакты</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:tranchuk2003@mail.ru">tranchuk2003@mail.ru</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79591227510">+7 (959) 122-75-10</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>

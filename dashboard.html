@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html" class="active">Кабинет</a>
+                <a href="jobs.html">Вакансии</a>
+                <a href="housing.html">Жильё</a>
+                <a href="courses.html">Курсы</a>
+                <a href="legal.html">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar-large">👤</div>
+                        <h3 class="profile-name" id="profile-name">Имя пользователя</h3>
+                        <p class="profile-phone" id="profile-phone">+7 (___) ___-__-__</p>
+                        <span class="profile-badge" id="profile-role">Мигрант</span>
+                        
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="stat-num">0</span>
+                                <span class="stat-label">Откликов</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-num">0</span>
+                                <span class="stat-label">Просмотров</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <a href="dashboard.html" class="nav-item active">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                        <a href="profile.html" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <a href="jobs.html" class="nav-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Вакансии</span>
+                        </a>
+                        <a href="housing.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Жильё</span>
+                        </a>
+                        <a href="courses.html" class="nav-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Курсы</span>
+                        </a>
+                        <a href="legal.html" class="nav-item">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Юрист</span>
+                        </a>
+                        <a href="community.html" class="nav-item">
+                            <i class="fas fa-users"></i>
+                            <span>Сообщество</span>
+                        </a>
+                        <a href="payments.html" class="nav-item">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Платежи</span>
+                        </a>
+                        <a href="settings.html" class="nav-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                        <a href="login.html" class="nav-item nav-item-danger" id="logout-btn-sidebar">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Выйти</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="sidebar-promo">
+                        <div class="promo-badge">Premium</div>
+                        <h4>Пакет «Быстрый старт»</h4>
+                        <p>Приоритетная поддержка и проверка документов</p>
+                        <div class="promo-price">2 990 ₽</div>
+                        <a href="payments.html" class="btn btn-primary btn-sm btn-full">Купить</a>
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <section class="dashboard-content">
+                    <!-- Welcome Banner -->
+                    <div class="welcome-banner">
+                        <div class="welcome-content">
+                            <h1>Добро пожаловать в MigrantHub!</h1>
+                            <p>Здесь вы можете найти работу, жильё и получить юридическую поддержку</p>
+                        </div>
+                        <div class="welcome-illustration">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-blue">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value">0</span>
+                                <span class="stat-label">Откликов на вакансии</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-green">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value">0</span>
+                                <span class="stat-label">Просмотров жилья</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-purple">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value">0</span>
+                                <span class="stat-label">Сообщений</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon stat-icon-orange">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-value">0</span>
+                                <span class="stat-label">Документов</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="section-header">
+                        <h2>Быстрые действия</h2>
+                        <p>Начните с самого важного</p>
+                    </div>
+                    
+                    <div class="quick-actions">
+                        <a href="jobs.html" class="action-card">
+                            <div class="action-icon action-icon-blue">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Найти работу</h3>
+                            <p>Проверенные вакансии</p>
+                        </a>
+                        
+                        <a href="housing.html" class="action-card">
+                            <div class="action-icon action-icon-green">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Найти жильё</h3>
+                            <p>Безопасная аренда</p>
+                        </a>
+                        
+                        <a href="courses.html" class="action-card">
+                            <div class="action-icon action-icon-purple">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Изучать язык</h3>
+                            <p>Курсы русского</p>
+                        </a>
+                        
+                        <a href="legal.html" class="action-card">
+                            <div class="action-icon action-icon-orange">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Помощь юриста</h3>
+                            <p>Консультации 24/7</p>
+                        </a>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="section-header">
+                        <h2>Последняя активность</h2>
+                        <a href="#" class="view-all">Все уведомления <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="activity-feed">
+                        <div class="activity-item">
+                            <div class="activity-icon activity-icon-blue">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Аккаунт создан</h4>
+                                <p>Добро пожаловать в MigrantHub! Заполните профиль для начала.</p>
+                                <span class="activity-time">Сегодня</span>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item">
+                            <div class="activity-icon activity-icon-green">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="activity-content">
+                                <h4>Заполните документы</h4>
+                                <p>Загрузите документы для верификации аккаунта</p>
+                                <span class="activity-time">Ожидает действия</span>
+                            </div>
+                            <a href="profile.html" class="btn btn-sm btn-outline">Заполнить</a>
+                        </div>
+                    </div>
+
+                    <!-- Recommended Services -->
+                    <div class="section-header">
+                        <h2>Рекомендуемые сервисы</h2>
+                        <p>Подобрано специально для вас</p>
+                    </div>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-badge">Популярное</div>
+                            <div class="service-icon-wrapper">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Оформление патента</h3>
+                            <p>Помощь с документами для получения патента</p>
+                            <div class="service-price">от 5 000 ₽</div>
+                            <a href="legal.html" class="btn btn-primary btn-sm">Заказать</a>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon-wrapper">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h3>Курс русского A1</h3>
+                            <p>Базовый уровень для повседневного общения</p>
+                            <div class="service-price">Бесплатно</div>
+                            <a href="courses.html" class="btn btn-outline btn-sm">Начать</a>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon-wrapper">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3>Карта услуг</h3>
+                            <p>МФЦ, больницы, банки рядом с вами</p>
+                            <div class="service-price">Бесплатно</div>
+                            <a href="#" class="btn btn-outline btn-sm">Открыть</a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

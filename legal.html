@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юридическая помощь — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html">Кабинет</a>
+                <a href="jobs.html">Вакансии</a>
+                <a href="housing.html">Жильё</a>
+                <a href="courses.html">Курсы</a>
+                <a href="legal.html" class="active">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar-large">👤</div>
+                        <h3 class="profile-name" id="profile-name">Имя пользователя</h3>
+                        <p class="profile-phone" id="profile-phone">+7 (___) ___-__-__</p>
+                        <span class="profile-badge" id="profile-role">Мигрант</span>
+                        
+                        <div class="legal-status">
+                            <h4>Статус документов</h4>
+                            <div class="status-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Патент: Активен</span>
+                            </div>
+                            <div class="status-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Регистрация: 15 дней</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                        <a href="legal.html" class="nav-item active">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Юрист</span>
+                        </a>
+                        <a href="profile.html" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <a href="settings.html" class="nav-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                        <a href="login.html" class="nav-item nav-item-danger" id="logout-btn-sidebar">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Выйти</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="sidebar-promo">
+                        <div class="promo-badge">24/7</div>
+                        <h4>Экстренная помощь</h4>
+                        <p>Юрист на связи в любое время</p>
+                        <a href="#consultation" class="btn btn-primary btn-sm btn-full">Получить помощь</a>
+                    </div>
+                </aside>
+
+                <!-- Legal Content -->
+                <section class="dashboard-content">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="page-header-content">
+                            <h1>Юридическая помощь</h1>
+                            <p>Онлайн-консультации с миграционными юристами</p>
+                        </div>
+                        <div class="page-header-actions">
+                            <a href="#consultation" class="btn btn-primary btn-sm">
+                                <i class="fas fa-phone"></i>
+                                Заказать звонок
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Legal Services -->
+                    <div class="section-header">
+                        <h2>Наши услуги</h2>
+                        <p>Выберите подходящий формат консультации</p>
+                    </div>
+                    
+                    <div class="legal-services-grid">
+                        <div class="service-card featured">
+                            <div class="service-badge">Популярное</div>
+                            <div class="service-icon-wrapper">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3 class="service-title">Онлайн-консультация</h3>
+                            <p class="service-description">Чат с юристом в реальном времени</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Ответ в течение 15 минут</li>
+                                <li><i class="fas fa-check"></i> История переписки</li>
+                                <li><i class="fas fa-check"></i> Документы в чате</li>
+                            </ul>
+                            <div class="service-price">1 500 ₽/час</div>
+                            <button class="btn btn-primary btn-full" onclick="bookService('chat', 1500)">
+                                <i class="fas fa-comments"></i>
+                                Начать чат
+                            </button>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon-wrapper">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h3 class="service-title">Видеоконсультация</h3>
+                            <p class="service-description">Видеовстреча с юристом</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Личное общение</li>
+                                <li><i class="fas fa-check"></i> Демонстрация документов</li>
+                                <li><i class="fas fa-check"></i> Запись встречи</li>
+                            </ul>
+                            <div class="service-price">2 500 ₽/час</div>
+                            <button class="btn btn-outline btn-full" onclick="bookService('video', 2500)">
+                                <i class="fas fa-video"></i>
+                                Записаться
+                            </button>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon-wrapper">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h3 class="service-title">Оформление документов</h3>
+                            <p class="service-description">Помощь с заполнением и подачей</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Проверка документов</li>
+                                <li><i class="fas fa-check"></i> Заполнение форм</li>
+                                <li><i class="fas fa-check"></i> Сопровождение</li>
+                            </ul>
+                            <div class="service-price">от 3 000 ₽</div>
+                            <button class="btn btn-outline btn-full" onclick="bookService('documents', 3000)">
+                                <i class="fas fa-file-signature"></i>
+                                Заказать
+                            </button>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-icon-wrapper">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3 class="service-title">Представительство</h3>
+                            <p class="service-description">Юрист сопровождает в госорганах</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Личное присутствие</li>
+                                <li><i class="fas fa-check"></i> Защита интересов</li>
+                                <li><i class="fas fa-check"></i> Полное сопровождение</li>
+                            </ul>
+                            <div class="service-price">от 10 000 ₽</div>
+                            <button class="btn btn-outline btn-full" onclick="bookService('representation', 10000)">
+                                <i class="fas fa-user-shield"></i>
+                                Заказать
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Lawyers Team -->
+                    <div class="section-header">
+                        <h2>Наши юристы</h2>
+                        <p>Опытные специалисты по миграционному праву</p>
+                    </div>
+                    
+                    <div class="lawyers-grid">
+                        <div class="lawyer-card">
+                            <div class="lawyer-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="lawyer-name">Иванов Петр</h3>
+                            <p class="lawyer-specialty">Миграционное право</p>
+                            <p class="lawyer-experience">10 лет опыта</p>
+                            <div class="lawyer-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9)</span>
+                            </div>
+                            <p class="lawyer-cases">124 успешных дела</p>
+                            <button class="btn btn-primary btn-sm btn-full" onclick="selectLawyer('ivanov')">
+                                <i class="fas fa-user-check"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                        
+                        <div class="lawyer-card">
+                            <div class="lawyer-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="lawyer-name">Смирнова Анна</h3>
+                            <p class="lawyer-specialty">Трудовое право</p>
+                            <p class="lawyer-experience">8 лет опыта</p>
+                            <div class="lawyer-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.8)</span>
+                            </div>
+                            <p class="lawyer-cases">98 успешных дел</p>
+                            <button class="btn btn-primary btn-sm btn-full" onclick="selectLawyer('smirnova')">
+                                <i class="fas fa-user-check"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                        
+                        <div class="lawyer-card">
+                            <div class="lawyer-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="lawyer-name">Алиев Рустам</h3>
+                            <p class="lawyer-specialty">Документы и патенты</p>
+                            <p class="lawyer-experience">12 лет опыта</p>
+                            <div class="lawyer-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <p class="lawyer-cases">215 успешных дел</p>
+                            <button class="btn btn-primary btn-sm btn-full" onclick="selectLawyer('aliev')">
+                                <i class="fas fa-user-check"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                        
+                        <div class="lawyer-card">
+                            <div class="lawyer-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3 class="lawyer-name">Козлова Елена</h3>
+                            <p class="lawyer-specialty">Гражданство и ВНЖ</p>
+                            <p class="lawyer-experience">15 лет опыта</p>
+                            <div class="lawyer-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                            <p class="lawyer-cases">187 успешных дел</p>
+                            <button class="btn btn-primary btn-sm btn-full" onclick="selectLawyer('kozlova')">
+                                <i class="fas fa-user-check"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Legal Topics -->
+                    <div class="section-header">
+                        <h2>Популярные темы</h2>
+                        <p>Частые вопросы и решения</p>
+                    </div>
+                    
+                    <div class="topics-grid">
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <h4>Оформление патента</h4>
+                            <p>Пошаговая инструкция получения патента на работу</p>
+                            <a href="#" class="topic-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h4>Регистрация по месту пребывания</h4>
+                            <p>Как правильно оформить временную регистрацию</p>
+                            <a href="#" class="topic-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-plane-departure"></i>
+                            </div>
+                            <h4>Выезд и въезд в РФ</h4>
+                            <p>Правила пересечения границы и сроки пребывания</p>
+                            <a href="#" class="topic-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h4>РВП и ВНЖ</h4>
+                            <p>Получение разрешения на временное проживание и вид на жительство</p>
+                            <a href="#" class="topic-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h4>Трудовые права</h4>
+                            <p>Защита прав трудовых мигрантов</p>
+                            <a href="#" class="topic-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="topic-card">
+                            <div class="topic-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h4>Что делать при депортации</h4>
+                            <p>Порядок обжалования и юридическая помощь</p>
+                            <a href="#" class="topic-link">Подробнее <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <div class="section-header">
+                        <h2>Частые вопросы</h2>
+                        <p>Ответы на популярные вопросы</p>
+                    </div>
+                    
+                    <div class="faq-section">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Как оформить патент на работу?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Патент оформляется через МФЦ. Необходимые документы: паспорт, миграционная карта, медицинская справка, сертификат о знании русского языка, полис ДМС. Срок оформления — до 30 дней.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Что делать при утере документов?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Необходимо немедленно обратиться в полицию для получения справки об утере, затем в миграционный центр для восстановления документов. Наши юристы могут сопровождать этот процесс.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Как продлить регистрацию?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Регистрацию можно продлить через работодателя или арендодателя. Необходимо подать заявление в МФЦ за 7 дней до истечения срока текущей регистрации.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Какие права есть у трудового мигранта?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Трудовой мигрант имеет право на своевременную оплату труда, безопасные условия работы, медицинскую помощь, защиту от дискриминации. При нарушении прав можно обратиться в трудовую инспекцию или к юристу.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="emergency-banner" id="consultation">
+                        <div class="emergency-content">
+                            <div class="emergency-icon">
+                                <i class="fas fa-phone-volume"></i>
+                            </div>
+                            <div class="emergency-info">
+                                <h3>Экстренная юридическая помощь</h3>
+                                <p>Если у вас срочный вопрос — позвоните нам прямо сейчас</p>
+                                <a href="tel:+79591227510" class="emergency-phone">+7 (959) 122-75-10</a>
+                            </div>
+                            <div class="emergency-hours">
+                                <i class="fas fa-clock"></i>
+                                <span>24/7</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Booking Modal -->
+    <div class="modal" id="booking-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h2>Запись на консультацию</h2>
+            </div>
+            <div class="modal-body">
+                <div class="booking-summary">
+                    <div class="summary-row">
+                        <span>Услуга:</span>
+                        <span id="modal-service-name">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Стоимость:</span>
+                        <span id="modal-service-amount" class="summary-amount">0 ₽</span>
+                    </div>
+                </div>
+                
+                <form class="booking-form">
+                    <div class="form-group">
+                        <label class="form-label">Ваше имя</label>
+                        <input type="text" class="form-input" placeholder="Иван Иванов" id="booking-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Телефон</label>
+                        <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" id="booking-phone">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Дата и время</label>
+                        <input type="datetime-local" class="form-input" id="booking-datetime">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Описание проблемы</label>
+                        <textarea class="form-input" rows="4" placeholder="Опишите ваш вопрос..." id="booking-description"></textarea>
+                    </div>
+                </form>
+                
+                <div class="payment-security">
+                    <i class="fas fa-shield-check"></i>
+                    <span>Конфиденциальность гарантирована</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-full" id="modal-cancel">Отмена</button>
+                <button class="btn btn-primary btn-full" id="modal-confirm">
+                    <i class="fas fa-calendar-check"></i>
+                    Записаться
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/legal.js"></script>
+</body>
+</html>

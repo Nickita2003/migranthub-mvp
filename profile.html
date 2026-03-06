@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html">Кабинет</a>
+                <a href="jobs.html">Вакансии</a>
+                <a href="housing.html">Жильё</a>
+                <a href="courses.html">Курсы</a>
+                <a href="legal.html">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar-large">👤</div>
+                        <h3 class="profile-name" id="profile-name">Имя пользователя</h3>
+                        <p class="profile-phone" id="profile-phone">+7 (___) ___-__-__</p>
+                        <span class="profile-badge" id="profile-role">Мигрант</span>
+                        
+                        <div class="profile-verification">
+                            <div class="verification-status verified">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Телефон подтверждён</span>
+                            </div>
+                            <div class="verification-status pending">
+                                <i class="fas fa-clock"></i>
+                                <span>Документы на проверке</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                        <a href="profile.html" class="nav-item active">
+                            <i class="fas fa-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <a href="payments.html" class="nav-item">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Платежи</span>
+                        </a>
+                        <a href="settings.html" class="nav-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                        <a href="login.html" class="nav-item nav-item-danger" id="logout-btn-sidebar">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Выйти</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="profile-completion">
+                        <h4>Заполненность профиля</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <p class="progress-text">65% — Заполните все поля для верификации</p>
+                    </div>
+                </aside>
+
+                <!-- Profile Content -->
+                <section class="dashboard-content">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="page-header-content">
+                            <h1>Мой профиль</h1>
+                            <p>Управление личной информацией и документами</p>
+                        </div>
+                        <div class="page-header-actions">
+                            <button class="btn btn-primary btn-sm" id="save-profile-btn">
+                                <i class="fas fa-save"></i>
+                                Сохранить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-user"></i>
+                                Личная информация
+                            </h2>
+                        </div>
+                        
+                        <form id="profile-form" class="profile-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Фамилия *</label>
+                                    <input type="text" class="form-input" id="last-name" placeholder="Иванов" value="Иванов">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Имя *</label>
+                                    <input type="text" class="form-input" id="first-name" placeholder="Иван" value="Иван">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Отчество</label>
+                                    <input type="text" class="form-input" id="middle-name" placeholder="Иванович" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Дата рождения *</label>
+                                    <input type="date" class="form-input" id="birth-date" value="1990-01-01">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Гражданство *</label>
+                                    <select class="form-input" id="citizenship">
+                                        <option value="uz">🇺🇿 Узбекистан</option>
+                                        <option value="tg">🇹🇯 Таджикистан</option>
+                                        <option value="kg">🇰🇬 Кыргызстан</option>
+                                        <option value="az">🇦🇿 Азербайджан</option>
+                                        <option value="mn">🇲🇳 Монголия</option>
+                                        <option value="kz">🇰🇿 Казахстан</option>
+                                        <option value="other">🌍 Другое</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Пол *</label>
+                                    <select class="form-input" id="gender">
+                                        <option value="male">Мужской</option>
+                                        <option value="female">Женский</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Телефон *</label>
+                                    <input type="tel" class="form-input" id="phone" value="+7 (___) ___-__-__" readonly>
+                                    <span class="form-hint">✓ Подтверждён</span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-input" id="email" placeholder="example@mail.ru" value="">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Город пребывания *</label>
+                                <input type="text" class="form-input" id="city" placeholder="Москва" value="Москва">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">О себе</label>
+                                <textarea class="form-input" id="bio" rows="4" placeholder="Расскажите о себе, опыте работы, навыках..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Documents Section -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-file-contract"></i>
+                                Документы
+                            </h2>
+                            <span class="section-badge">Верификация</span>
+                        </div>
+                        
+                        <div class="documents-grid">
+                            <div class="document-card verified">
+                                <div class="document-icon">
+                                    <i class="fas fa-passport"></i>
+                                </div>
+                                <div class="document-info">
+                                    <h4>Паспорт</h4>
+                                    <p>Основной документ удостоверяющий личность</p>
+                                    <span class="document-status status-success">
+                                        <i class="fas fa-check-circle"></i>
+                                        Проверен
+                                    </span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                        Просмотр
+                                    </button>
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-upload"></i>
+                                        Заменить
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="document-card pending">
+                                <div class="document-icon">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <div class="document-info">
+                                    <h4>Миграционная карта</h4>
+                                    <p>Документ о въезде в РФ</p>
+                                    <span class="document-status status-pending">
+                                        <i class="fas fa-clock"></i>
+                                        На проверке
+                                    </span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="btn btn-outline btn-sm">
+                                        <i class="fas fa-eye"></i>
+                                        Просмотр
+                                    </button>
+                                    <button class="btn btn-outline btn-sm" disabled>
+                                        <i class="fas fa-upload"></i>
+                                        Заменить
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="document-card">
+                                <div class="document-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="document-info">
+                                    <h4>Патент на работу</h4>
+                                    <p>Разрешение на трудовую деятельность</p>
+                                    <span class="document-status status-inactive">
+                                        <i class="fas fa-times-circle"></i>
+                                        Не загружен
+                                    </span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-upload"></i>
+                                        Загрузить
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="document-card">
+                                <div class="document-icon">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="document-info">
+                                    <h4>Регистрация</h4>
+                                    <p>Подтверждение места проживания</p>
+                                    <span class="document-status status-inactive">
+                                        <i class="fas fa-times-circle"></i>
+                                        Не загружен
+                                    </span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-upload"></i>
+                                        Загрузить
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="document-card">
+                                <div class="document-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="document-info">
+                                    <h4>Сертификат о знании языка</h4>
+                                    <p>Подтверждение уровня русского языка</p>
+                                    <span class="document-status status-inactive">
+                                        <i class="fas fa-times-circle"></i>
+                                        Не загружен
+                                    </span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-upload"></i>
+                                        Загрузить
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="document-card">
+                                <div class="document-icon">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="document-info">
+                                    <h4>Медицинская справка</h4>
+                                    <p>Медицинское освидетельствование</p>
+                                    <span class="document-status status-inactive">
+                                        <i class="fas fa-times-circle"></i>
+                                        Не загружен
+                                    </span>
+                                </div>
+                                <div class="document-actions">
+                                    <button class="btn btn-primary btn-sm">
+                                        <i class="fas fa-upload"></i>
+                                        Загрузить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="document-help">
+                            <i class="fas fa-info-circle"></i>
+                            <div class="help-content">
+                                <h4>Требования к документам</h4>
+                                <ul>
+                                    <li>Формат: PDF, JPG, PNG</li>
+                                    <li>Максимальный размер: 5 МБ</li>
+                                    <li>Качество: чёткое, читаемое</li>
+                                    <li>Срок проверки: 1-3 рабочих дня</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Stats -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-chart-line"></i>
+                                Статистика профиля
+                            </h2>
+                        </div>
+                        
+                        <div class="profile-stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon stat-icon-blue">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-value">0</span>
+                                    <span class="stat-label">Просмотров профиля</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon stat-icon-green">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-value">0</span>
+                                    <span class="stat-label">Откликов на вакансии</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon stat-icon-purple">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-value">0</span>
+                                    <span class="stat-label">Просмотров жилья</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon stat-icon-orange">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <span class="stat-value">0.0</span>
+                                    <span class="stat-label">Рейтинг</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Activity -->
+                    <div class="profile-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-history"></i>
+                                Активность аккаунта
+                            </h2>
+                            <a href="#" class="view-all">Вся история <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        
+                        <div class="activity-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Аккаунт создан</h4>
+                                    <p>Регистрация в MigrantHub</p>
+                                    <span class="timeline-date">Сегодня, 10:30</span>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Телефон подтверждён</h4>
+                                    <p>Верификация по SMS</p>
+                                    <span class="timeline-date">Сегодня, 10:32</span>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Документы загружены</h4>
+                                    <p>Паспорт и миграционная карта отправлены на проверку</p>
+                                    <span class="timeline-date">Сегодня, 11:15</span>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Профиль обновлён</h4>
+                                    <p>Изменены личные данные</p>
+                                    <span class="timeline-date">Сегодня, 12:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Document Upload Modal -->
+    <div class="modal" id="document-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-upload"></i>
+                </div>
+                <h2>Загрузка документа</h2>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Тип документа</label>
+                    <select class="form-input" id="document-type">
+                        <option value="passport">Паспорт</option>
+                        <option value="migration">Миграционная карта</option>
+                        <option value="patent">Патент на работу</option>
+                        <option value="registration">Регистрация</option>
+                        <option value="certificate">Сертификат о знании языка</option>
+                        <option value="medical">Медицинская справка</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Загрузить файл</label>
+                    <div class="file-upload">
+                        <input type="file" id="document-file" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                        <label for="document-file" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>Выберите файл или перетащите сюда</span>
+                            <small>PDF, JPG, PNG до 5 МБ</small>
+                        </label>
+                        <div class="file-info" id="file-info"></div>
+                    </div>
+                </div>
+                
+                <div class="payment-security">
+                    <i class="fas fa-shield-check"></i>
+                    <span>Документы защищены и используются только для верификации</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-full" id="modal-cancel">Отмена</button>
+                <button class="btn btn-primary btn-full" id="modal-confirm">
+                    <i class="fas fa-upload"></i>
+                    Загрузить
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

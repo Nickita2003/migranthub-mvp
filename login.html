@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="auth-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html">Главная</a>
+                <a href="register.html">Регистрация</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-main">
+        <div class="auth-background"></div>
+        
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <div class="auth-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                        </div>
+                        <h1 class="auth-title">Вход в аккаунт</h1>
+                        <p class="auth-subtitle">Добро пожаловать обратно!</p>
+                    </div>
+                    
+                    <form id="login-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="phone" class="form-label">
+                                <i class="fas fa-phone"></i>
+                                Телефон
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                class="form-input" 
+                                placeholder="+7 (___) ___-__-__"
+                                required
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Пароль
+                            </label>
+                            <div class="password-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="password" 
+                                    name="password" 
+                                    class="form-input" 
+                                    placeholder="Введите пароль"
+                                    required
+                                >
+                                <button type="button" class="password-toggle" id="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember" name="remember">
+                                <span>Запомнить меня</span>
+                            </label>
+                            <a href="#" class="forgot-link">Забыли пароль?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full btn-lg">
+                            <i class="fas fa-sign-in-alt"></i>
+                            Войти
+                        </button>
+                    </form>
+                    
+                    <div class="auth-divider">
+                        <span>или</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn social-vk">
+                            <i class="fab fa-vk"></i>
+                            <span>VK</span>
+                        </button>
+                        <button type="button" class="social-btn social-telegram">
+                            <i class="fab fa-telegram"></i>
+                            <span>Telegram</span>
+                        </button>
+                        <button type="button" class="social-btn social-google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        <p>Нет аккаунта? <a href="register.html" class="auth-link">Зарегистрироваться</a></p>
+                    </div>
+                    
+                    <div id="login-message" class="message"></div>
+                </div>
+                
+                <div class="auth-info">
+                    <h2>Преимущества MigrantHub</h2>
+                    <ul class="auth-features">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Проверенные работодатели и жильё</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Поддержка на 10+ языках</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Юридическая защита 24/7</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Безопасные сделки</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer auth-footer-fixed">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+                <div class="footer-legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Оферта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

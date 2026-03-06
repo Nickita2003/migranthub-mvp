@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы русского языка — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html">Кабинет</a>
+                <a href="jobs.html">Вакансии</a>
+                <a href="housing.html">Жильё</a>
+                <a href="courses.html" class="active">Курсы</a>
+                <a href="legal.html">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar-large">👤</div>
+                        <h3 class="profile-name" id="profile-name">Имя пользователя</h3>
+                        <p class="profile-phone" id="profile-phone">+7 (___) ___-__-__</p>
+                        <span class="profile-badge" id="profile-role">Мигрант</span>
+                        
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="stat-num">0</span>
+                                <span class="stat-label">Курсов</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-num">0%</span>
+                                <span class="stat-label">Прогресс</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                        <a href="courses.html" class="nav-item active">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Курсы</span>
+                        </a>
+                        <a href="profile.html" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <a href="settings.html" class="nav-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                        <a href="login.html" class="nav-item nav-item-danger" id="logout-btn-sidebar">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Выйти</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="sidebar-promo">
+                        <div class="promo-badge">Бесплатно</div>
+                        <h4>Курс A1</h4>
+                        <p>Базовый уровень русского языка</p>
+                        <a href="#course-a1" class="btn btn-primary btn-sm btn-full">Начать</a>
+                    </div>
+                </aside>
+
+                <!-- Courses Content -->
+                <section class="dashboard-content">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="page-header-content">
+                            <h1>Курсы русского языка</h1>
+                            <p>Онлайн-обучение от A1 до B2 с сертификатом</p>
+                        </div>
+                        <div class="page-header-actions">
+                            <select class="sort-select" id="level-filter">
+                                <option value="all">Все уровни</option>
+                                <option value="a1">A1 - Начальный</option>
+                                <option value="a2">A2 - Элементарный</option>
+                                <option value="b1">B1 - Средний</option>
+                                <option value="b2">B2 - Продвинутый</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Progress Overview -->
+                    <div class="courses-progress">
+                        <div class="progress-card">
+                            <div class="progress-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="progress-info">
+                                <h3>Активные курсы</h3>
+                                <p>Вы ещё не записаны на курсы</p>
+                            </div>
+                            <a href="#courses-list" class="btn btn-primary btn-sm">Выбрать курс</a>
+                        </div>
+                        <div class="progress-card">
+                            <div class="progress-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="progress-info">
+                                <h3>Сертификаты</h3>
+                                <p>0 полученных сертификатов</p>
+                            </div>
+                            <button class="btn btn-outline btn-sm">Подробнее</button>
+                        </div>
+                        <div class="progress-card">
+                            <div class="progress-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="progress-info">
+                                <h3>Часов обучения</h3>
+                                <p>0 часов пройдено</p>
+                            </div>
+                            <button class="btn btn-outline btn-sm">Статистика</button>
+                        </div>
+                    </div>
+
+                    <!-- Language Levels -->
+                    <div class="section-header">
+                        <h2>Уровни владения языком</h2>
+                        <p>Выберите подходящий уровень для начала обучения</p>
+                    </div>
+                    
+                    <div class="level-cards" id="courses-list">
+                        <!-- A1 Level -->
+                        <div class="level-card" id="course-a1">
+                            <div class="level-badge">A1</div>
+                            <div class="level-header">
+                                <h3 class="level-title">Начальный уровень</h3>
+                                <span class="level-price">Бесплатно</span>
+                            </div>
+                            <p class="level-description">Базовые фразы, алфавит, простые диалоги для повседневного общения</p>
+                            <div class="level-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-video"></i>
+                                    <span>20 уроков</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>40 часов</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Группа</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Сертификат</span>
+                                </div>
+                            </div>
+                            <ul class="level-curriculum">
+                                <li><i class="fas fa-check"></i> Алфавит и произношение</li>
+                                <li><i class="fas fa-check"></i> Базовые фразы приветствия</li>
+                                <li><i class="fas fa-check"></i> Числа и время</li>
+                                <li><i class="fas fa-check"></i> Простые диалоги</li>
+                                <li><i class="fas fa-check"></i> Аудио упражнения</li>
+                            </ul>
+                            <div class="level-footer">
+                                <button class="btn btn-primary btn-full" onclick="enrollCourse('a1', 0)">
+                                    <i class="fas fa-play"></i>
+                                    Начать обучение
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- A2 Level -->
+                        <div class="level-card popular" id="course-a2">
+                            <div class="level-badge-popular">Популярный</div>
+                            <div class="level-badge">A2</div>
+                            <div class="level-header">
+                                <h3 class="level-title">Элементарный уровень</h3>
+                                <span class="level-price">4 990 ₽</span>
+                            </div>
+                            <p class="level-description">Повседневное общение, грамматика, чтение простых текстов</p>
+                            <div class="level-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-video"></i>
+                                    <span>40 уроков</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>80 часов</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Группа</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Сертификат</span>
+                                </div>
+                            </div>
+                            <ul class="level-curriculum">
+                                <li><i class="fas fa-check"></i> Разговорная практика</li>
+                                <li><i class="fas fa-check"></i> Грамматика A2</li>
+                                <li><i class="fas fa-check"></i> Чтение текстов</li>
+                                <li><i class="fas fa-check"></i> Письменные задания</li>
+                                <li><i class="fas fa-check"></i> Официальный сертификат</li>
+                            </ul>
+                            <div class="level-footer">
+                                <button class="btn btn-primary btn-full" onclick="enrollCourse('a2', 4990)">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Купить курс
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- B1 Level -->
+                        <div class="level-card" id="course-b1">
+                            <div class="level-badge">B1</div>
+                            <div class="level-header">
+                                <h3 class="level-title">Средний уровень</h3>
+                                <span class="level-price">7 990 ₽</span>
+                            </div>
+                            <p class="level-description">Свободное общение, работа, документы, понимание СМИ</p>
+                            <div class="level-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-video"></i>
+                                    <span>60 уроков</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>120 часов</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Группа</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Сертификат</span>
+                                </div>
+                            </div>
+                            <ul class="level-curriculum">
+                                <li><i class="fas fa-check"></i> Деловое общение</li>
+                                <li><i class="fas fa-check"></i> Грамматика B1</li>
+                                <li><i class="fas fa-check"></i> Видео уроки</li>
+                                <li><i class="fas fa-check"></i> Работа с документами</li>
+                                <li><i class="fas fa-check"></i> Сертификат образца</li>
+                            </ul>
+                            <div class="level-footer">
+                                <button class="btn btn-outline btn-full" onclick="enrollCourse('b1', 7990)">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Купить курс
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- B2 Level -->
+                        <div class="level-card" id="course-b2">
+                            <div class="level-badge">B2</div>
+                            <div class="level-header">
+                                <h3 class="level-title">Продвинутый уровень</h3>
+                                <span class="level-price">12 990 ₽</span>
+                            </div>
+                            <p class="level-description">Профессиональный русский, экзамены, свободное владение</p>
+                            <div class="level-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-video"></i>
+                                    <span>80 уроков</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>160 часов</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>Индивидуально</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-certificate"></i>
+                                    <span>Гос. сертификат</span>
+                                </div>
+                            </div>
+                            <ul class="level-curriculum">
+                                <li><i class="fas fa-check"></i> Подготовка к экзамену</li>
+                                <li><i class="fas fa-check"></i> Профессиональная лексика</li>
+                                <li><i class="fas fa-check"></i> Индивидуальная работа</li>
+                                <li><i class="fas fa-check"></i> Пробные тесты</li>
+                                <li><i class="fas fa-check"></i> Официальный сертификат</li>
+                            </ul>
+                            <div class="level-footer">
+                                <button class="btn btn-outline btn-full" onclick="enrollCourse('b2', 12990)">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Купить курс
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exam Preparation -->
+                    <div class="section-header">
+                        <h2>Подготовка к экзаменам</h2>
+                        <p>Специализированные курсы для сдачи экзаменов</p>
+                    </div>
+                    
+                    <div class="exam-cards">
+                        <div class="exam-card">
+                            <div class="exam-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h3 class="exam-title">Экзамен на патент</h3>
+                            <p class="exam-description">Комплексный экзамен для получения патента на работу</p>
+                            <ul class="exam-curriculum">
+                                <li><i class="fas fa-check"></i> Русский язык</li>
+                                <li><i class="fas fa-check"></i> История России</li>
+                                <li><i class="fas fa-check"></i> Законодательство РФ</li>
+                            </ul>
+                            <div class="exam-price">3 990 ₽</div>
+                            <button class="btn btn-primary btn-full" onclick="enrollExam('patent', 3990)">
+                                <i class="fas fa-clipboard-check"></i>
+                                Записаться
+                            </button>
+                        </div>
+                        
+                        <div class="exam-card">
+                            <div class="exam-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h3 class="exam-title">Экзамен на РВП</h3>
+                            <p class="exam-description">Подготовка к экзамену на разрешение на временное проживание</p>
+                            <ul class="exam-curriculum">
+                                <li><i class="fas fa-check"></i> Полный курс</li>
+                                <li><i class="fas fa-check"></i> Пробные тесты</li>
+                                <li><i class="fas fa-check"></i> Консультации</li>
+                            </ul>
+                            <div class="exam-price">5 990 ₽</div>
+                            <button class="btn btn-primary btn-full" onclick="enrollExam('rvp', 5990)">
+                                <i class="fas fa-clipboard-check"></i>
+                                Записаться
+                            </button>
+                        </div>
+                        
+                        <div class="exam-card">
+                            <div class="exam-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <h3 class="exam-title">Экзамен на ВНЖ</h3>
+                            <p class="exam-description">Подготовка к экзамену на вид на жительство</p>
+                            <ul class="exam-curriculum">
+                                <li><i class="fas fa-check"></i> Углублённый курс</li>
+                                <li><i class="fas fa-check"></i> Индивидуальная работа</li>
+                                <li><i class="fas fa-check"></i> Гарантия сдачи</li>
+                            </ul>
+                            <div class="exam-price">8 990 ₽</div>
+                            <button class="btn btn-primary btn-full" onclick="enrollExam('vnzh', 8990)">
+                                <i class="fas fa-clipboard-check"></i>
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Learning Features -->
+                    <div class="section-header">
+                        <h2>Преимущества обучения</h2>
+                        <p>Почему выбирают курсы MigrantHub</p>
+                    </div>
+                    
+                    <div class="features-grid courses-features">
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-laptop"></i>
+                            </div>
+                            <h3 class="feature-title">Онлайн формат</h3>
+                            <p class="feature-description">Учитесь в любое время с любого устройства</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3 class="feature-title">Опытные преподаватели</h3>
+                            <p class="feature-description">Сертифицированные преподаватели РКИ</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="feature-title">Мобильное приложение</h3>
+                            <p class="feature-description">Удобное обучение со смартфона</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon-wrapper">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3 class="feature-title">Официальный сертификат</h3>
+                            <p class="feature-description">Документ подтверждает уровень языка</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Enrollment Modal -->
+    <div class="modal" id="enrollment-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h2>Запись на курс</h2>
+            </div>
+            <div class="modal-body">
+                <div class="payment-summary">
+                    <div class="summary-row">
+                        <span>Курс:</span>
+                        <span id="modal-course-name">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Уровень:</span>
+                        <span id="modal-course-level">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Стоимость:</span>
+                        <span id="modal-course-amount" class="summary-amount">0 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="enrollment-form">
+                    <div class="form-group">
+                        <label class="form-label">Ваше имя</label>
+                        <input type="text" class="form-input" placeholder="Иван Иванов" id="student-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" placeholder="email@example.com" id="student-email">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Телефон</label>
+                        <input type="tel" class="form-input" placeholder="+7 (___) ___-__-__" id="student-phone">
+                    </div>
+                </div>
+                
+                <div class="payment-security">
+                    <i class="fas fa-shield-check"></i>
+                    <span>Доступ к курсу откроется после оплаты</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-full" id="modal-cancel">Отмена</button>
+                <button class="btn btn-primary btn-full" id="modal-confirm">
+                    <i class="fas fa-lock"></i>
+                    Оплатить и начать
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/courses.js"></script>
+</body>
+</html>

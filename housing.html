@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск жилья — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html">Кабинет</a>
+                <a href="jobs.html">Вакансии</a>
+                <a href="housing.html" class="active">Жильё</a>
+                <a href="courses.html">Курсы</a>
+                <a href="legal.html">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar Filters -->
+                <aside class="dashboard-sidebar">
+                    <div class="filter-card">
+                        <h3 class="filter-title">
+                            <i class="fas fa-filter"></i>
+                            Фильтры
+                        </h3>
+                        
+                        <form id="housing-filters" class="filter-form">
+                            <!-- Search -->
+                            <div class="form-group">
+                                <label class="form-label">Поиск</label>
+                                <div class="search-wrapper">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="text" class="form-input" placeholder="Район или метро">
+                                </div>
+                            </div>
+                            
+                            <!-- Location -->
+                            <div class="form-group">
+                                <label class="form-label">Город</label>
+                                <select class="form-input" id="city-select">
+                                    <option value="">Все города</option>
+                                    <option value="moscow">Москва</option>
+                                    <option value="spb">Санкт-Петербург</option>
+                                    <option value="kazan">Казань</option>
+                                    <option value="ekb">Екатеринбург</option>
+                                    <option value="novosib">Новосибирск</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Housing Type -->
+                            <div class="form-group">
+                                <label class="form-label">Тип жилья</label>
+                                <select class="form-input">
+                                    <option value="">Любой тип</option>
+                                    <option value="room">Комната</option>
+                                    <option value="apartment">Квартира</option>
+                                    <option value="hostel">Хостел</option>
+                                    <option value="dormitory">Общежитие</option>
+                                    <option value="bed">Койко-место</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Price -->
+                            <div class="form-group">
+                                <label class="form-label">Цена в месяц</label>
+                                <div class="price-range">
+                                    <input type="number" class="form-input" placeholder="От" id="price-from">
+                                    <input type="number" class="form-input" placeholder="До" id="price-to">
+                                </div>
+                            </div>
+                            
+                            <!-- Rooms -->
+                            <div class="form-group">
+                                <label class="form-label">Количество соседей</label>
+                                <select class="form-input">
+                                    <option value="">Любое</option>
+                                    <option value="1">1 сосед</option>
+                                    <option value="2">2 соседа</option>
+                                    <option value="3">3 соседа</option>
+                                    <option value="4+">4+ соседей</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Amenities -->
+                            <div class="form-group">
+                                <label class="form-label">Удобства</label>
+                                <div class="checkbox-list">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="wifi">
+                                        <span>📶 Wi-Fi</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="kitchen">
+                                        <span>🍳 Кухня</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="shower">
+                                        <span>🚿 Душ/Ванна</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="washing">
+                                        <span>🧺 Стиральная машина</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="metro">
+                                        <span>🚇 Метро рядом</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="amenity" value="verified">
+                                        <span>✅ Проверено</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- Buttons -->
+                            <div class="filter-actions">
+                                <button type="submit" class="btn btn-primary btn-full">
+                                    <i class="fas fa-search"></i>
+                                    Применить
+                                </button>
+                                <button type="reset" class="btn btn-outline btn-full">
+                                    <i class="fas fa-undo"></i>
+                                    Сбросить
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Promo Card -->
+                    <div class="sidebar-promo">
+                        <div class="promo-badge">Premium</div>
+                        <h4>VIP-доступ к жилью</h4>
+                        <p>Первыми смотрите новые объявления</p>
+                        <div class="promo-price">399 ₽/мес</div>
+                        <a href="payments.html" class="btn btn-primary btn-sm btn-full">Подключить</a>
+                    </div>
+                </aside>
+
+                <!-- Housing Content -->
+                <section class="dashboard-content">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="page-header-content">
+                            <h1>Поиск жилья</h1>
+                            <p>Верифицированные арендодатели</p>
+                        </div>
+                        <div class="page-header-actions">
+                            <div class="view-toggle">
+                                <button class="view-btn active" data-view="grid">
+                                    <i class="fas fa-th-large"></i>
+                                </button>
+                                <button class="view-btn" data-view="list">
+                                    <i class="fas fa-list"></i>
+                                </button>
+                            </div>
+                            <select class="sort-select">
+                                <option value="newest">Сначала новые</option>
+                                <option value="price-low">Сначала дешёвые</option>
+                                <option value="price-high">Сначала дорогие</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="jobs-stats">
+                        <span class="jobs-count">Найдено <strong>84</strong> варианта</span>
+                        <div class="jobs-filters-active">
+                            <span class="filter-tag">
+                                Москва
+                                <button class="filter-remove"><i class="fas fa-times"></i></button>
+                            </span>
+                            <span class="filter-tag">
+                                до 20 000 ₽
+                                <button class="filter-remove"><i class="fas fa-times"></i></button>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Housing Grid -->
+                    <div class="housing-grid" id="housing-container">
+                        <!-- Housing Card 1 -->
+                        <div class="housing-card verified">
+                            <div class="housing-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="housing-image">
+                                <div class="housing-image-placeholder">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="housing-image-count">
+                                    <i class="fas fa-images"></i> 5 фото
+                                </div>
+                            </div>
+                            <div class="housing-info">
+                                <div class="housing-header">
+                                    <h3 class="housing-title">Комната в 3-к квартире</h3>
+                                    <span class="housing-price">15 000 ₽/мес</span>
+                                </div>
+                                <div class="housing-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Москва, м. Таганская
+                                </div>
+                                <div class="housing-features">
+                                    <span class="feature-tag"><i class="fas fa-user"></i> 2 соседа</span>
+                                    <span class="feature-tag"><i class="fas fa-wifi"></i> Wi-Fi</span>
+                                    <span class="feature-tag"><i class="fas fa-shower"></i> Душ</span>
+                                    <span class="feature-tag"><i class="fas fa-utensils"></i> Кухня</span>
+                                </div>
+                                <p class="housing-description">Уютная комната для одного человека. Все удобства рядом. Метро 5 минут пешком.</p>
+                                <div class="housing-landlord">
+                                    <div class="landlord-avatar">👨</div>
+                                    <div class="landlord-info">
+                                        <span class="landlord-name">Александр</span>
+                                        <span class="landlord-rating">
+                                            <i class="fas fa-star"></i>
+                                            4.9 (18 отзывов)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="housing-footer">
+                                    <span class="housing-date">Опубликовано: 2 часа назад</span>
+                                    <div class="housing-actions">
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-phone"></i>
+                                            Связаться
+                                        </button>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Housing Card 2 -->
+                        <div class="housing-card verified">
+                            <div class="housing-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="housing-image">
+                                <div class="housing-image-placeholder">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="housing-image-count">
+                                    <i class="fas fa-images"></i> 8 фото
+                                </div>
+                            </div>
+                            <div class="housing-info">
+                                <div class="housing-header">
+                                    <h3 class="housing-title">Место в общежитии</h3>
+                                    <span class="housing-price">8 000 ₽/мес</span>
+                                </div>
+                                <div class="housing-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Москва, м. ВДНХ
+                                </div>
+                                <div class="housing-features">
+                                    <span class="feature-tag"><i class="fas fa-user"></i> 4 соседа</span>
+                                    <span class="feature-tag"><i class="fas fa-wifi"></i> Wi-Fi</span>
+                                    <span class="feature-tag"><i class="fas fa-shower"></i> Душ</span>
+                                    <span class="feature-tag"><i class="fas fa-utensils"></i> Кухня</span>
+                                </div>
+                                <p class="housing-description">Чистое общежитие для рабочих. Метро рядом. Есть всё необходимое для проживания.</p>
+                                <div class="housing-landlord">
+                                    <div class="landlord-avatar">👩</div>
+                                    <div class="landlord-info">
+                                        <span class="landlord-name">Елена</span>
+                                        <span class="landlord-rating">
+                                            <i class="fas fa-star"></i>
+                                            4.7 (32 отзыва)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="housing-footer">
+                                    <span class="housing-date">Опубликовано: 5 часов назад</span>
+                                    <div class="housing-actions">
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-phone"></i>
+                                            Связаться
+                                        </button>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Housing Card 3 -->
+                        <div class="housing-card verified">
+                            <div class="housing-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="housing-image">
+                                <div class="housing-image-placeholder">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="housing-image-count">
+                                    <i class="fas fa-images"></i> 12 фото
+                                </div>
+                            </div>
+                            <div class="housing-info">
+                                <div class="housing-header">
+                                    <h3 class="housing-title">Квартира для бригады</h3>
+                                    <span class="housing-price">40 000 ₽/мес</span>
+                                </div>
+                                <div class="housing-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Санкт-Петербург, м. Кировская
+                                </div>
+                                <div class="housing-features">
+                                    <span class="feature-tag"><i class="fas fa-user"></i> до 6 человек</span>
+                                    <span class="feature-tag"><i class="fas fa-wifi"></i> Wi-Fi</span>
+                                    <span class="feature-tag"><i class="fas fa-shower"></i> 2 санузла</span>
+                                    <span class="feature-tag"><i class="fas fa-utensils"></i> Кухня</span>
+                                </div>
+                                <p class="housing-description">Просторная квартира для рабочей бригады. Все удобства. Документы оформляем.</p>
+                                <div class="housing-landlord">
+                                    <div class="landlord-avatar">👨</div>
+                                    <div class="landlord-info">
+                                        <span class="landlord-name">Дмитрий</span>
+                                        <span class="landlord-rating">
+                                            <i class="fas fa-star"></i>
+                                            4.8 (45 отзывов)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="housing-footer">
+                                    <span class="housing-date">Опубликовано: 1 день назад</span>
+                                    <div class="housing-actions">
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-phone"></i>
+                                            Связаться
+                                        </button>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Housing Card 4 -->
+                        <div class="housing-card">
+                            <div class="housing-image">
+                                <div class="housing-image-placeholder">
+                                    <i class="fas fa-bed"></i>
+                                </div>
+                                <div class="housing-image-count">
+                                    <i class="fas fa-images"></i> 4 фото
+                                </div>
+                            </div>
+                            <div class="housing-info">
+                                <div class="housing-header">
+                                    <h3 class="housing-title">Койко-место в хостеле</h3>
+                                    <span class="housing-price">5 000 ₽/мес</span>
+                                </div>
+                                <div class="housing-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Москва, м. Курская
+                                </div>
+                                <div class="housing-features">
+                                    <span class="feature-tag"><i class="fas fa-user"></i> 8 соседей</span>
+                                    <span class="feature-tag"><i class="fas fa-wifi"></i> Wi-Fi</span>
+                                    <span class="feature-tag"><i class="fas fa-shower"></i> Душ</span>
+                                    <span class="feature-tag"><i class="fas fa-utensils"></i> Кухня</span>
+                                </div>
+                                <p class="housing-description">Бюджетный вариант для старта. Центр города. Все коммуникации.</p>
+                                <div class="housing-landlord">
+                                    <div class="landlord-avatar">👩</div>
+                                    <div class="landlord-info">
+                                        <span class="landlord-name">Мария</span>
+                                        <span class="landlord-rating">
+                                            <i class="fas fa-star"></i>
+                                            4.5 (23 отзыва)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="housing-footer">
+                                    <span class="housing-date">Опубликовано: 2 дня назад</span>
+                                    <div class="housing-actions">
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-phone"></i>
+                                            Связаться
+                                        </button>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Housing Card 5 -->
+                        <div class="housing-card verified">
+                            <div class="housing-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="housing-image">
+                                <div class="housing-image-placeholder">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div class="housing-image-count">
+                                    <i class="fas fa-images"></i> 6 фото
+                                </div>
+                            </div>
+                            <div class="housing-info">
+                                <div class="housing-header">
+                                    <h3 class="housing-title">Комната в 2-к квартире</h3>
+                                    <span class="housing-price">18 000 ₽/мес</span>
+                                </div>
+                                <div class="housing-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Казань, м. Кремлёвская
+                                </div>
+                                <div class="housing-features">
+                                    <span class="feature-tag"><i class="fas fa-user"></i> 1 сосед</span>
+                                    <span class="feature-tag"><i class="fas fa-wifi"></i> Wi-Fi</span>
+                                    <span class="feature-tag"><i class="fas fa-shower"></i> Ванна</span>
+                                    <span class="feature-tag"><i class="fas fa-utensils"></i> Кухня</span>
+                                </div>
+                                <p class="housing-description">Светлая комната в центре. Тихие соседи. Можно с животными.</p>
+                                <div class="housing-landlord">
+                                    <div class="landlord-avatar">👨</div>
+                                    <div class="landlord-info">
+                                        <span class="landlord-name">Рустам</span>
+                                        <span class="landlord-rating">
+                                            <i class="fas fa-star"></i>
+                                            5.0 (12 отзывов)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="housing-footer">
+                                    <span class="housing-date">Опубликовано: 3 дня назад</span>
+                                    <div class="housing-actions">
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-phone"></i>
+                                            Связаться
+                                        </button>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Housing Card 6 -->
+                        <div class="housing-card verified">
+                            <div class="housing-badge">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Проверено</span>
+                            </div>
+                            <div class="housing-image">
+                                <div class="housing-image-placeholder">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="housing-image-count">
+                                    <i class="fas fa-images"></i> 10 фото
+                                </div>
+                            </div>
+                            <div class="housing-info">
+                                <div class="housing-header">
+                                    <h3 class="housing-title">Студия для одного</h3>
+                                    <span class="housing-price">25 000 ₽/мес</span>
+                                </div>
+                                <div class="housing-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Екатеринбург, м. Площадь 1905 года
+                                </div>
+                                <div class="housing-features">
+                                    <span class="feature-tag"><i class="fas fa-user"></i> Без соседей</span>
+                                    <span class="feature-tag"><i class="fas fa-wifi"></i> Wi-Fi</span>
+                                    <span class="feature-tag"><i class="fas fa-shower"></i> Санузел</span>
+                                    <span class="feature-tag"><i class="fas fa-utensils"></i> Кухня</span>
+                                </div>
+                                <p class="housing-description">Отдельная студия. Идеально для одного человека. Все включено.</p>
+                                <div class="housing-landlord">
+                                    <div class="landlord-avatar">👩</div>
+                                    <div class="landlord-info">
+                                        <span class="landlord-name">Ольга</span>
+                                        <span class="landlord-rating">
+                                            <i class="fas fa-star"></i>
+                                            4.9 (28 отзывов)
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="housing-footer">
+                                    <span class="housing-date">Опубликовано: 4 дня назад</span>
+                                    <div class="housing-actions">
+                                        <button class="btn btn-primary btn-sm">
+                                            <i class="fas fa-phone"></i>
+                                            Связаться
+                                        </button>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination">
+                        <button class="page-btn">
+                            <i class="fas fa-chevron-left"></i>
+                            Назад
+                        </button>
+                        <button class="page-btn active">1</button>
+                        <button class="page-btn">2</button>
+                        <button class="page-btn">3</button>
+                        <button class="page-btn">...</button>
+                        <button class="page-btn">8</button>
+                        <button class="page-btn">
+                            Вперёд
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/housing.js"></script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html">Кабинет</a>
+                <a href="jobs.html">Вакансии</a>
+                <a href="housing.html">Жильё</a>
+                <a href="courses.html">Курсы</a>
+                <a href="legal.html">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar-large">👤</div>
+                        <h3 class="profile-name" id="profile-name">Имя пользователя</h3>
+                        <p class="profile-phone" id="profile-phone">+7 (___) ___-__-__</p>
+                        <span class="profile-badge" id="profile-role">Мигрант</span>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                        <a href="profile.html" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <a href="payments.html" class="nav-item">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Платежи</span>
+                        </a>
+                        <a href="settings.html" class="nav-item active">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                        <a href="login.html" class="nav-item nav-item-danger" id="logout-btn-sidebar">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Выйти</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Settings Content -->
+                <section class="dashboard-content">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="page-header-content">
+                            <h1>Настройки</h1>
+                            <p>Управление аккаунтом и предпочтениями</p>
+                        </div>
+                        <div class="page-header-actions">
+                            <button class="btn btn-primary btn-sm" id="save-settings-btn">
+                                <i class="fas fa-save"></i>
+                                Сохранить
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Account Settings -->
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-user-shield"></i>
+                                Аккаунт и безопасность
+                            </h2>
+                        </div>
+                        
+                        <form id="account-settings-form" class="settings-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Текущий пароль</label>
+                                    <input type="password" class="form-input" placeholder="••••••••" id="current-password">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Новый пароль</label>
+                                    <input type="password" class="form-input" placeholder="••••••••" id="new-password">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Подтвердите новый пароль</label>
+                                <input type="password" class="form-input" placeholder="••••••••" id="confirm-password">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Двухфакторная аутентификация</label>
+                                <div class="toggle-setting">
+                                    <span class="toggle-label">Включить 2FA для дополнительной защиты</span>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="two-factor-auth">
+                                        <span class="toggle-slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Активные сессии</label>
+                                <div class="active-sessions">
+                                    <div class="session-item active">
+                                        <i class="fas fa-desktop"></i>
+                                        <div class="session-info">
+                                            <span class="session-device">Chrome на Windows</span>
+                                            <span class="session-location">Москва, Россия</span>
+                                        </div>
+                                        <span class="session-status">Текущая сессия</span>
+                                    </div>
+                                    <div class="session-item">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <div class="session-info">
+                                            <span class="session-device">Safari на iPhone</span>
+                                            <span class="session-location">Москва, Россия</span>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline">Завершить</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-key"></i>
+                                    Изменить пароль
+                                </button>
+                                <button type="button" class="btn btn-outline" onclick="logoutAllDevices()">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Выйти со всех устройств
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Notification Settings -->
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-bell"></i>
+                                Уведомления
+                            </h2>
+                        </div>
+                        
+                        <div class="notification-settings">
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Email уведомления</h4>
+                                    <p class="toggle-description">Получать уведомления на электронную почту</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="email-notifications" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">SMS уведомления</h4>
+                                    <p class="toggle-description">Получать SMS о важных событиях</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="sms-notifications">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Push уведомления</h4>
+                                    <p class="toggle-description">Получать push-уведомления в браузере</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="push-notifications" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Новые вакансии</h4>
+                                    <p class="toggle-description">Уведомлять о подходящих вакансиях</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="job-notifications" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Новое жильё</h4>
+                                    <p class="toggle-description">Уведомлять о новых предложениях жилья</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="housing-notifications" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Рассылка новостей</h4>
+                                    <p class="toggle-description">Получать новости миграционного законодательства</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="newsletter-notifications">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language & Region Settings -->
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-globe"></i>
+                                Язык и регион
+                            </h2>
+                        </div>
+                        
+                        <form id="language-settings-form" class="settings-form">
+                            <div class="form-group">
+                                <label class="form-label">Язык интерфейса</label>
+                                <select class="form-input" id="interface-language">
+                                    <option value="ru">🇷🇺 Русский</option>
+                                    <option value="uz">🇺🇿 O'zbek</option>
+                                    <option value="tg">🇹🇯 Тоҷикӣ</option>
+                                    <option value="en">🇬🇧 English</option>
+                                    <option value="kg">🇰🇬 Кыргызча</option>
+                                    <option value="az">🇦🇿 Azərbaycan</option>
+                                    <option value="mn">🇲🇳 Монгол</option>
+                                    <option value="zh">🇨🇳 中文</option>
+                                    <option value="ar">🇸🇦 العربية</option>
+                                    <option value="tr">🇹🇷 Türkçe</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Часовой пояс</label>
+                                <select class="form-input" id="timezone">
+                                    <option value="Europe/Moscow">🕐 Москва (UTC+3)</option>
+                                    <option value="Asia/Yekaterinburg">🕐 Екатеринбург (UTC+5)</option>
+                                    <option value="Asia/Omsk">🕐 Омск (UTC+6)</option>
+                                    <option value="Asia/Krasnoyarsk">🕐 Красноярск (UTC+7)</option>
+                                    <option value="Asia/Irkutsk">🕐 Иркутск (UTC+8)</option>
+                                    <option value="Asia/Yakutsk">🕐 Якутск (UTC+9)</option>
+                                    <option value="Asia/Vladivostok">🕐 Владивосток (UTC+10)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Формат даты</label>
+                                <select class="form-input" id="date-format">
+                                    <option value="DD.MM.YYYY">ДД.ММ.ГГГГ (31.12.2026)</option>
+                                    <option value="MM/DD/YYYY">ММ/ДД/ГГГГ (12/31/2026)</option>
+                                    <option value="YYYY-MM-DD">ГГГГ-ММ-ДД (2026-12-31)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save"></i>
+                                    Сохранить
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Privacy Settings -->
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-lock"></i>
+                                Конфиденциальность
+                            </h2>
+                        </div>
+                        
+                        <div class="privacy-settings">
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Профиль виден всем</h4>
+                                    <p class="toggle-description">Разрешить другим пользователям видеть ваш профиль</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="profile-visible" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Телефон виден работодателям</h4>
+                                    <p class="toggle-description">Показывать номер телефона в резюме</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="phone-visible" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Активность видна в сообществе</h4>
+                                    <p class="toggle-description">Показывать вашу активность на форуме</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="activity-visible">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="toggle-setting">
+                                <div class="toggle-info">
+                                    <h4 class="toggle-title">Статус онлайн</h4>
+                                    <p class="toggle-description">Показывать, когда вы онлайн</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="online-status" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-primary" onclick="savePrivacySettings()">
+                                    <i class="fas fa-save"></i>
+                                    Сохранить настройки
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data & Storage -->
+                    <div class="settings-section">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-database"></i>
+                                Данные и хранилище
+                            </h2>
+                        </div>
+                        
+                        <div class="storage-info">
+                            <div class="storage-card">
+                                <div class="storage-header">
+                                    <h4>Использование хранилища</h4>
+                                    <span class="storage-used">2.5 ГБ из 5 ГБ</span>
+                                </div>
+                                <div class="storage-bar">
+                                    <div class="storage-fill" style="width: 50%"></div>
+                                </div>
+                                <div class="storage-breakdown">
+                                    <div class="storage-item">
+                                        <span class="storage-label">Документы</span>
+                                        <span class="storage-value">1.2 ГБ</span>
+                                    </div>
+                                    <div class="storage-item">
+                                        <span class="storage-label">Сообщения</span>
+                                        <span class="storage-value">800 МБ</span>
+                                    </div>
+                                    <div class="storage-item">
+                                        <span class="storage-label">Кэш</span>
+                                        <span class="storage-value">500 МБ</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="storage-actions">
+                                <button class="btn btn-outline btn-full" onclick="clearCache()">
+                                    <i class="fas fa-broom"></i>
+                                    Очистить кэш
+                                </button>
+                                <button class="btn btn-outline btn-full" onclick="downloadData()">
+                                    <i class="fas fa-download"></i>
+                                    Скачать мои данные
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Danger Zone -->
+                    <div class="settings-section danger-zone">
+                        <div class="section-header">
+                            <h2>
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Опасная зона
+                            </h2>
+                        </div>
+                        
+                        <div class="danger-actions">
+                            <div class="danger-item">
+                                <div class="danger-info">
+                                    <h4>Удалить аккаунт</h4>
+                                    <p>Все ваши данные будут удалены безвозвратно. Это действие нельзя отменить.</p>
+                                </div>
+                                <button class="btn btn-danger" onclick="confirmDeleteAccount()">
+                                    <i class="fas fa-trash"></i>
+                                    Удалить аккаунт
+                                </button>
+                            </div>
+                            
+                            <div class="danger-item">
+                                <div class="danger-info">
+                                    <h4>Выйти со всех устройств</h4>
+                                    <p>Завершить все активные сессии на всех устройствах</p>
+                                </div>
+                                <button class="btn btn-danger" onclick="logoutAllDevices()">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Выйти везде
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Delete Account Modal -->
+    <div class="modal" id="delete-account-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon modal-icon-danger">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h2>Удаление аккаунта</h2>
+            </div>
+            <div class="modal-body">
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Вы уверены, что хотите удалить аккаунт? Это действие нельзя отменить.</p>
+                </div>
+                
+                <div class="delete-consequences">
+                    <h4>Что будет удалено:</h4>
+                    <ul>
+                        <li>✓ Все личные данные</li>
+                        <li>✓ История вакансий и откликов</li>
+                        <li>✓ Документы и загрузки</li>
+                        <li>✓ Сообщения в сообществе</li>
+                        <li>✓ Активные подписки</li>
+                    </ul>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Введите "УДАЛИТЬ" для подтверждения</label>
+                    <input type="text" class="form-input" id="delete-confirm-text" placeholder="Введите УДАЛИТЬ">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-full" id="modal-cancel">Отмена</button>
+                <button class="btn btn-danger btn-full" id="modal-confirm-delete">
+                    <i class="fas fa-trash"></i>
+                    Удалить аккаунт
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>

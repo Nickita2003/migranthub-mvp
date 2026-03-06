@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сообщество — MigrantHub</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <span class="logo-text">MigrantHub</span>
+        </a>
+
+        <nav class="nav-menu">
+          <a href="dashboard.html">Кабинет</a>
+          <a href="jobs.html">Вакансии</a>
+          <a href="housing.html">Жильё</a>
+          <a href="courses.html">Курсы</a>
+          <a href="legal.html">Юрист</a>
+          <a href="community.html" class="active">Сообщество</a>
+        </nav>
+
+        <div class="header-actions">
+          <div class="user-mini-profile">
+            <div class="user-avatar">👤</div>
+            <span class="user-name" id="header-user-name">Гость</span>
+          </div>
+          <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn"
+            >Выйти</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+      <div class="container">
+        <div class="dashboard-grid">
+          <!-- Sidebar -->
+          <aside class="dashboard-sidebar">
+            <div class="profile-card">
+              <div class="profile-avatar-large">👤</div>
+              <h3 class="profile-name" id="profile-name">Имя пользователя</h3>
+              <p class="profile-phone" id="profile-phone">+7 (___) ___-__-__</p>
+              <span class="profile-badge" id="profile-role">Мигрант</span>
+
+              <div class="community-stats">
+                <h4>Моя активность</h4>
+                <div class="stat-item">
+                  <i class="fas fa-comment"></i>
+                  <span>0 сообщений</span>
+                </div>
+                <div class="stat-item">
+                  <i class="fas fa-thumbs-up"></i>
+                  <span>0 лайков</span>
+                </div>
+                <div class="stat-item">
+                  <i class="fas fa-bookmark"></i>
+                  <span>0 сохранений</span>
+                </div>
+              </div>
+            </div>
+
+            <nav class="sidebar-nav">
+              <a href="dashboard.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Главная</span>
+              </a>
+              <a href="community.html" class="nav-item active">
+                <i class="fas fa-users"></i>
+                <span>Сообщество</span>
+              </a>
+              <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Профиль</span>
+              </a>
+              <a href="settings.html" class="nav-item">
+                <i class="fas fa-cog"></i>
+                <span>Настройки</span>
+              </a>
+              <a
+                href="login.html"
+                class="nav-item nav-item-danger"
+                id="logout-btn-sidebar"
+              >
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Выйти</span>
+              </a>
+            </nav>
+
+            <div class="sidebar-promo">
+              <div class="promo-badge">Новое</div>
+              <h4>Группа взаимопомощи</h4>
+              <p>Найдите наставника из вашей страны</p>
+              <a href="#mentors" class="btn btn-primary btn-sm btn-full"
+                >Найти наставника</a
+              >
+            </div>
+          </aside>
+
+          <!-- Community Content -->
+          <section class="dashboard-content">
+            <!-- Page Header -->
+            <div class="page-header">
+              <div class="page-header-content">
+                <h1>Сообщество мигрантов</h1>
+                <p>Форумы, чаты и поддержка от уже адаптировавшихся</p>
+              </div>
+              <div class="page-header-actions">
+                <button
+                  class="btn btn-primary btn-sm"
+                  onclick="openCreateTopicModal()"
+                >
+                  <i class="fas fa-plus"></i>
+                  Создать тему
+                </button>
+              </div>
+            </div>
+
+            <!-- Community Stats -->
+            <div class="community-stats-bar">
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-blue">
+                  <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">50,000+</span>
+                  <span class="stat-label">Участников сообщества</span>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-green">
+                  <i class="fas fa-comments"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">10,000+</span>
+                  <span class="stat-label">Тем на форуме</span>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-purple">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">24/7</span>
+                  <span class="stat-label">Поддержка онлайн</span>
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-icon stat-icon-orange">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <div class="stat-info">
+                  <span class="stat-value">15+</span>
+                  <span class="stat-label">Стран представлено</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Forum Categories -->
+            <div class="section-header">
+              <h2>Форумы по странам</h2>
+              <p>Общайтесь с земляками и делитесь опытом</p>
+            </div>
+
+            <div class="forum-categories" id="forum-categories">
+              <div class="forum-card" data-country="uz">
+                <div class="forum-flag">🇺🇿</div>
+                <div class="forum-info">
+                  <h3 class="forum-title">Узбекистан</h3>
+                  <p class="forum-description">
+                    Форум для мигрантов из Узбекистана
+                  </p>
+                  <div class="forum-meta">
+                    <span class="forum-members">
+                      <i class="fas fa-users"></i>
+                      12,345 участников
+                    </span>
+                    <span class="forum-topics">
+                      <i class="fas fa-comment"></i>
+                      5,678 тем
+                    </span>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-outline btn-sm forum-enter">
+                  <i class="fas fa-arrow-right"></i>
+                  Войти
+                </a>
+              </div>
+
+              <div class="forum-card" data-country="tg">
+                <div class="forum-flag">🇹🇯</div>
+                <div class="forum-info">
+                  <h3 class="forum-title">Таджикистан</h3>
+                  <p class="forum-description">
+                    Форум для мигрантов из Таджикистана
+                  </p>
+                  <div class="forum-meta">
+                    <span class="forum-members">
+                      <i class="fas fa-users"></i>
+                      9,876 участников
+                    </span>
+                    <span class="forum-topics">
+                      <i class="fas fa-comment"></i>
+                      4,321 тем
+                    </span>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-outline btn-sm forum-enter">
+                  <i class="fas fa-arrow-right"></i>
+                  Войти
+                </a>
+              </div>
+
+              <div class="forum-card" data-country="kg">
+                <div class="forum-flag">🇰🇬</div>
+                <div class="forum-info">
+                  <h3 class="forum-title">Кыргызстан</h3>
+                  <p class="forum-description">
+                    Форум для мигрантов из Кыргызстана
+                  </p>
+                  <div class="forum-meta">
+                    <span class="forum-members">
+                      <i class="fas fa-users"></i>
+                      6,543 участника
+                    </span>
+                    <span class="forum-topics">
+                      <i class="fas fa-comment"></i>
+                      3,210 тем
+                    </span>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-outline btn-sm forum-enter">
+                  <i class="fas fa-arrow-right"></i>
+                  Войти
+                </a>
+              </div>
+
+              <div class="forum-card" data-country="az">
+                <div class="forum-flag">🇦🇿</div>
+                <div class="forum-info">
+                  <h3 class="forum-title">Азербайджан</h3>
+                  <p class="forum-description">
+                    Форум для мигрантов из Азербайджана
+                  </p>
+                  <div class="forum-meta">
+                    <span class="forum-members">
+                      <i class="fas fa-users"></i>
+                      4,567 участников
+                    </span>
+                    <span class="forum-topics">
+                      <i class="fas fa-comment"></i>
+                      2,345 тем
+                    </span>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-outline btn-sm forum-enter">
+                  <i class="fas fa-arrow-right"></i>
+                  Войти
+                </a>
+              </div>
+
+              <div class="forum-card" data-country="mn">
+                <div class="forum-flag">🇲🇳</div>
+                <div class="forum-info">
+                  <h3 class="forum-title">Монголия</h3>
+                  <p class="forum-description">
+                    Форум для мигрантов из Монголии
+                  </p>
+                  <div class="forum-meta">
+                    <span class="forum-members">
+                      <i class="fas fa-users"></i>
+                      2,345 участников
+                    </span>
+                    <span class="forum-topics">
+                      <i class="fas fa-comment"></i>
+                      1,234 тем
+                    </span>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-outline btn-sm forum-enter">
+                  <i class="fas fa-arrow-right"></i>
+                  Войти
+                </a>
+              </div>
+
+              <div class="forum-card" data-country="general">
+                <div class="forum-flag">🌍</div>
+                <div class="forum-info">
+                  <h3 class="forum-title">Общий форум</h3>
+                  <p class="forum-description">
+                    Общий форум для всех мигрантов
+                  </p>
+                  <div class="forum-meta">
+                    <span class="forum-members">
+                      <i class="fas fa-users"></i>
+                      34,567 участников
+                    </span>
+                    <span class="forum-topics">
+                      <i class="fas fa-comment"></i>
+                      12,345 тем
+                    </span>
+                  </div>
+                </div>
+                <a href="#" class="btn btn-outline btn-sm forum-enter">
+                  <i class="fas fa-arrow-right"></i>
+                  Войти
+                </a>
+              </div>
+            </div>
+
+            <!-- Recent Topics -->
+            <div class="section-header">
+              <h2>Последние темы</h2>
+              <a href="#" class="view-all"
+                >Все темы <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="topics-list" id="topics-list">
+              <div class="topic-item">
+                <div class="topic-vote">
+                  <button class="vote-btn vote-up">
+                    <i class="fas fa-chevron-up"></i>
+                  </button>
+                  <span class="vote-count">24</span>
+                  <button class="vote-btn vote-down">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="topic-content">
+                  <div class="topic-header">
+                    <h4 class="topic-title">
+                      Как оформить патент в Москве? Пошаговая инструкция
+                    </h4>
+                    <div class="topic-tags">
+                      <span class="topic-tag tag-blue">Документы</span>
+                      <span class="topic-tag tag-green">Москва</span>
+                    </div>
+                  </div>
+                  <p class="topic-preview">
+                    Всем привет! Подскажите пожалуйста, какие документы нужны
+                    для оформления патента? Сколько это стоит и сколько времени
+                    занимает? Заранее спасибо!
+                  </p>
+                  <div class="topic-meta">
+                    <div class="topic-author">
+                      <div class="author-avatar">👤</div>
+                      <div class="author-info">
+                        <span class="author-name">Алишер К.</span>
+                        <span class="author-country">🇺🇿 Узбекистан</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span class="topic-stat">
+                        <i class="fas fa-comment"></i>
+                        23 ответа
+                      </span>
+                      <span class="topic-stat">
+                        <i class="fas fa-eye"></i>
+                        1,234 просмотра
+                      </span>
+                      <span class="topic-time">2 часа назад</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="topic-item">
+                <div class="topic-vote">
+                  <button class="vote-btn vote-up">
+                    <i class="fas fa-chevron-up"></i>
+                  </button>
+                  <span class="vote-count">18</span>
+                  <button class="vote-btn vote-down">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="topic-content">
+                  <div class="topic-header">
+                    <h4 class="topic-title">
+                      Ищу работу в строительстве. Опыт 5 лет
+                    </h4>
+                    <div class="topic-tags">
+                      <span class="topic-tag tag-orange">Работа</span>
+                      <span class="topic-tag tag-blue">Строительство</span>
+                    </div>
+                  </div>
+                  <p class="topic-preview">
+                    Здравствуйте! Ищу работу в строительстве. Есть опыт работы 5
+                    лет, все документы в порядке. Рассмотрю любые предложения в
+                    Москве и области.
+                  </p>
+                  <div class="topic-meta">
+                    <div class="topic-author">
+                      <div class="author-avatar">👤</div>
+                      <div class="author-info">
+                        <span class="author-name">Рустам М.</span>
+                        <span class="author-country">🇹🇯 Таджикистан</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span class="topic-stat">
+                        <i class="fas fa-comment"></i>
+                        12 ответов
+                      </span>
+                      <span class="topic-stat">
+                        <i class="fas fa-eye"></i>
+                        567 просмотров
+                      </span>
+                      <span class="topic-time">5 часов назад</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="topic-item">
+                <div class="topic-vote">
+                  <button class="vote-btn vote-up">
+                    <i class="fas fa-chevron-up"></i>
+                  </button>
+                  <span class="vote-count">32</span>
+                  <button class="vote-btn vote-down">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="topic-content">
+                  <div class="topic-header">
+                    <h4 class="topic-title">
+                      Советы по поиску жилья. Как не попасть на мошенников?
+                    </h4>
+                    <div class="topic-tags">
+                      <span class="topic-tag tag-purple">Жильё</span>
+                      <span class="topic-tag tag-red">Безопасность</span>
+                    </div>
+                  </div>
+                  <p class="topic-preview">
+                    Делюсь опытом поиска жилья в Москве. Рассказываю как
+                    распознать мошенников и какие вопросы задавать арендодателю.
+                    Читайте до конца!
+                  </p>
+                  <div class="topic-meta">
+                    <div class="topic-author">
+                      <div class="author-avatar">👤</div>
+                      <div class="author-info">
+                        <span class="author-name">Фаррух А.</span>
+                        <span class="author-country">🇺🇿 Узбекистан</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span class="topic-stat">
+                        <i class="fas fa-comment"></i>
+                        45 ответов
+                      </span>
+                      <span class="topic-stat">
+                        <i class="fas fa-eye"></i>
+                        2,345 просмотров
+                      </span>
+                      <span class="topic-time">1 день назад</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="topic-item">
+                <div class="topic-vote">
+                  <button class="vote-btn vote-up">
+                    <i class="fas fa-chevron-up"></i>
+                  </button>
+                  <span class="vote-count">15</span>
+                  <button class="vote-btn vote-down">
+                    <i class="fas fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="topic-content">
+                  <div class="topic-header">
+                    <h4 class="topic-title">
+                      Вопросы по регистрации. Помогите разобраться
+                    </h4>
+                    <div class="topic-tags">
+                      <span class="topic-tag tag-blue">Документы</span>
+                      <span class="topic-tag tag-green">Регистрация</span>
+                    </div>
+                  </div>
+                  <p class="topic-preview">
+                    Подскажите пожалуйста, как продлить регистрацию?
+                    Работодатель говорит одно, арендодатель другое. Кто прав?
+                  </p>
+                  <div class="topic-meta">
+                    <div class="topic-author">
+                      <div class="author-avatar">👤</div>
+                      <div class="author-info">
+                        <span class="author-name">Джамшед Р.</span>
+                        <span class="author-country">🇹🇯 Таджикистан</span>
+                      </div>
+                    </div>
+                    <div class="topic-stats">
+                      <span class="topic-stat">
+                        <i class="fas fa-comment"></i>
+                        67 ответов
+                      </span>
+                      <span class="topic-stat">
+                        <i class="fas fa-eye"></i>
+                        3,456 просмотров
+                      </span>
+                      <span class="topic-time">2 дня назад</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mentors Section -->
+            <div class="section-header" id="mentors">
+              <h2>Наставники сообщества</h2>
+              <p>Опытные мигранты, которые помогут вам адаптироваться</p>
+            </div>
+
+            <div class="mentors-grid">
+              <div class="mentor-card">
+                <div class="mentor-avatar">👨‍💼</div>
+                <h3 class="mentor-name">Бахром Т.</h3>
+                <p class="mentor-country">🇺🇿 Узбекистан</p>
+                <p class="mentor-experience">В России 8 лет</p>
+                <div class="mentor-specialties">
+                  <span class="specialty-tag">Работа</span>
+                  <span class="specialty-tag">Документы</span>
+                  <span class="specialty-tag">Жильё</span>
+                </div>
+                <div class="mentor-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(5.0)</span>
+                </div>
+                <p class="mentor-helped">Помог 150+ людям</p>
+                <button
+                  class="btn btn-primary btn-sm btn-full"
+                  onclick="contactMentor('bahrom')"
+                >
+                  <i class="fas fa-comment"></i>
+                  Связаться
+                </button>
+              </div>
+
+              <div class="mentor-card">
+                <div class="mentor-avatar">👩‍💼</div>
+                <h3 class="mentor-name">Мадина К.</h3>
+                <p class="mentor-country">🇰🇬 Кыргызстан</p>
+                <p class="mentor-experience">В России 6 лет</p>
+                <div class="mentor-specialties">
+                  <span class="specialty-tag">Обучение</span>
+                  <span class="specialty-tag">Адаптация</span>
+                  <span class="specialty-tag">Семья</span>
+                </div>
+                <div class="mentor-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <span>(4.8)</span>
+                </div>
+                <p class="mentor-helped">Помогла 120+ людям</p>
+                <button
+                  class="btn btn-primary btn-sm btn-full"
+                  onclick="contactMentor('madina')"
+                >
+                  <i class="fas fa-comment"></i>
+                  Связаться
+                </button>
+              </div>
+
+              <div class="mentor-card">
+                <div class="mentor-avatar">👨‍💼</div>
+                <h3 class="mentor-name">Анвар С.</h3>
+                <p class="mentor-country">🇹🇯 Таджикистан</p>
+                <p class="mentor-experience">В России 10 лет</p>
+                <div class="mentor-specialties">
+                  <span class="specialty-tag">Бизнес</span>
+                  <span class="specialty-tag">Документы</span>
+                  <span class="specialty-tag">Право</span>
+                </div>
+                <div class="mentor-rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <span>(5.0)</span>
+                </div>
+                <p class="mentor-helped">Помог 200+ людям</p>
+                <button
+                  class="btn btn-primary btn-sm btn-full"
+                  onclick="contactMentor('anwar')"
+                >
+                  <i class="fas fa-comment"></i>
+                  Связаться
+                </button>
+              </div>
+            </div>
+
+            <!-- News Section -->
+            <div class="section-header">
+              <h2>Новости миграционного законодательства</h2>
+              <p>Актуальная информация об изменениях в законах</p>
+            </div>
+
+            <div class="news-grid">
+              <div class="news-card">
+                <div class="news-date">
+                  <i class="fas fa-calendar"></i>
+                  15 Февраля 2026
+                </div>
+                <h3 class="news-title">
+                  Новые правила оформления патента с 1 марта 2026
+                </h3>
+                <p class="news-preview">
+                  МВД РФ объявило об изменениях в процедуре оформления патента
+                  для трудовых мигрантов...
+                </p>
+                <a href="#" class="news-link"
+                  >Читать далее <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+
+              <div class="news-card">
+                <div class="news-date">
+                  <i class="fas fa-calendar"></i>
+                  10 Февраля 2026
+                </div>
+                <h3 class="news-title">
+                  Изменения в сроках временного пребывания
+                </h3>
+                <p class="news-preview">
+                  Правительство РФ внесло изменения в правила временного
+                  пребывания иностранных граждан...
+                </p>
+                <a href="#" class="news-link"
+                  >Читать далее <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+
+              <div class="news-card">
+                <div class="news-date">
+                  <i class="fas fa-calendar"></i>
+                  5 Февраля 2026
+                </div>
+                <h3 class="news-title">
+                  Новые требования к медицинскому освидетельствованию
+                </h3>
+                <p class="news-preview">
+                  С 1 апреля 2026 года вступают в силу новые требования к
+                  медицинскому освидетельствованию...
+                </p>
+                <a href="#" class="news-link"
+                  >Читать далее <i class="fas fa-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- Create Topic Modal -->
+    <div class="modal" id="create-topic-modal">
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-header">
+          <div class="modal-icon">
+            <i class="fas fa-plus-circle"></i>
+          </div>
+          <h2>Создать новую тему</h2>
+        </div>
+        <div class="modal-body">
+          <form class="topic-form" id="topic-form">
+            <div class="form-group">
+              <label class="form-label">Заголовок темы *</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="Кратко опишите вашу тему"
+                id="topic-title"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Категория *</label>
+              <select class="form-input" id="topic-category" required>
+                <option value="">Выберите категорию</option>
+                <option value="documents">Документы и легализация</option>
+                <option value="work">Работа и вакансии</option>
+                <option value="housing">Жильё и аренда</option>
+                <option value="education">Обучение и курсы</option>
+                <option value="legal">Юридические вопросы</option>
+                <option value="general">Общие вопросы</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Форум</label>
+              <select class="form-input" id="topic-forum">
+                <option value="general">Общий форум</option>
+                <option value="uz">Узбекистан</option>
+                <option value="tg">Таджикистан</option>
+                <option value="kg">Кыргызстан</option>
+                <option value="az">Азербайджан</option>
+                <option value="mn">Монголия</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Текст сообщения *</label>
+              <textarea
+                class="form-input"
+                rows="6"
+                placeholder="Подробно опишите ваш вопрос или тему..."
+                id="topic-content"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Теги (через запятую)</label>
+              <input
+                type="text"
+                class="form-input"
+                placeholder="например: Москва, патент, работа"
+                id="topic-tags"
+              />
+            </div>
+          </form>
+
+          <div class="payment-security">
+            <i class="fas fa-shield-check"></i>
+            <span>Тема появится после модерации (обычно в течение 1 часа)</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline btn-full" id="modal-cancel">
+            Отмена
+          </button>
+          <button class="btn btn-primary btn-full" id="modal-confirm">
+            <i class="fas fa-paper-plane"></i>
+            Опубликовать
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-bottom">
+          <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/community.js"></script>
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Платежи — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="dashboard-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="dashboard.html">Кабинет</a>
+                <a href="jobs.html">Вакансии</a>
+                <a href="housing.html">Жильё</a>
+                <a href="courses.html">Курсы</a>
+                <a href="legal.html">Юрист</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="user-mini-profile">
+                    <div class="user-avatar">👤</div>
+                    <span class="user-name" id="header-user-name">Гость</span>
+                </div>
+                <a href="login.html" class="btn btn-outline btn-sm" id="logout-btn">Выйти</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="container">
+            <div class="dashboard-grid">
+                <!-- Sidebar -->
+                <aside class="dashboard-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar-large">👤</div>
+                        <h3 class="profile-name" id="profile-name">Имя пользователя</h3>
+                        <p class="profile-phone" id="profile-phone">+7 (___) ___-__-__</p>
+                        <span class="profile-badge" id="profile-role">Мигрант</span>
+                        
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <span class="stat-num">0</span>
+                                <span class="stat-label">Покупок</span>
+                            </div>
+                            <div class="profile-stat">
+                                <span class="stat-num">0 ₽</span>
+                                <span class="stat-label">Потрачено</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <nav class="sidebar-nav">
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-home"></i>
+                            <span>Главная</span>
+                        </a>
+                        <a href="payments.html" class="nav-item active">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Платежи</span>
+                        </a>
+                        <a href="profile.html" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>Профиль</span>
+                        </a>
+                        <a href="settings.html" class="nav-item">
+                            <i class="fas fa-cog"></i>
+                            <span>Настройки</span>
+                        </a>
+                        <a href="login.html" class="nav-item nav-item-danger" id="logout-btn-sidebar">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Выйти</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Payments Content -->
+                <section class="dashboard-content">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="page-header-content">
+                            <h1>Платежи и подписки</h1>
+                            <p>Управление услугами и история транзакций</p>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="section-header">
+                        <h2>Способы оплаты</h2>
+                        <p>Выберите удобный способ оплаты</p>
+                    </div>
+                    
+                    <div class="payment-methods-grid">
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h3>Банковская карта</h3>
+                            <p>Visa, Mastercard, МИР</p>
+                            <div class="payment-method-status">
+                                <span class="status-badge status-active">✓ Подключено</span>
+                            </div>
+                            <button class="btn btn-outline btn-sm">Изменить</button>
+                        </div>
+                        
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon">
+                                <i class="fas fa-qrcode"></i>
+                            </div>
+                            <h3>СБП</h3>
+                            <p>Система быстрых платежей</p>
+                            <div class="payment-method-status">
+                                <span class="status-badge status-active">✓ Подключено</span>
+                            </div>
+                            <button class="btn btn-outline btn-sm">Изменить</button>
+                        </div>
+                        
+                        <div class="payment-method-card">
+                            <div class="payment-method-icon">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <h3>ЮMoney</h3>
+                            <p>Электронный кошелёк</p>
+                            <div class="payment-method-status">
+                                <span class="status-badge status-inactive">○ Не подключено</span>
+                            </div>
+                            <button class="btn btn-primary btn-sm">Подключить</button>
+                        </div>
+                    </div>
+
+                    <!-- Subscription Plans -->
+                    <div class="section-header">
+                        <h2>Пакеты услуг</h2>
+                        <p>Выберите подходящий пакет для ваших задач</p>
+                    </div>
+                    
+                    <div class="subscription-plans">
+                        <!-- Plan 1 -->
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3 class="plan-title">Базовый</h3>
+                                <p class="plan-subtitle">Для начала работы</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-value">Бесплатно</span>
+                                <span class="price-period">навсегда</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Поиск вакансий</li>
+                                <li><i class="fas fa-check"></i> Поиск жилья</li>
+                                <li><i class="fas fa-check"></i> Базовая поддержка</li>
+                                <li><i class="fas fa-check"></i> Доступ к сообществу</li>
+                                <li class="plan-feature-disabled"><i class="fas fa-times"></i> Приоритетная поддержка</li>
+                                <li class="plan-feature-disabled"><i class="fas fa-times"></i> Проверка документов</li>
+                                <li class="plan-feature-disabled"><i class="fas fa-times"></i> Доступ к закрытым вакансиям</li>
+                            </ul>
+                            <button class="btn btn-outline btn-full" disabled>
+                                <i class="fas fa-check"></i>
+                                Активен
+                            </button>
+                        </div>
+                        
+                        <!-- Plan 2 (Popular) -->
+                        <div class="plan-card popular">
+                            <div class="plan-badge">Популярный</div>
+                            <div class="plan-header">
+                                <h3 class="plan-title">Быстрый старт</h3>
+                                <p class="plan-subtitle">Для быстрой адаптации</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-value">2 990 ₽</span>
+                                <span class="price-period">единоразово</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Всё из Базового</li>
+                                <li><i class="fas fa-check"></i> Приоритетная поддержка</li>
+                                <li><i class="fas fa-check"></i> Проверка документов</li>
+                                <li><i class="fas fa-check"></i> Доступ к закрытым вакансиям</li>
+                                <li><i class="fas fa-check"></i> Консультация юриста (1 час)</li>
+                                <li><i class="fas fa-check"></i> Помощь с регистрацией</li>
+                                <li class="plan-feature-disabled"><i class="fas fa-times"></i> Персональный менеджер</li>
+                            </ul>
+                            <button class="btn btn-primary btn-full" onclick="selectPlan('quick_start', 2990)">
+                                <i class="fas fa-rocket"></i>
+                                Купить
+                            </button>
+                        </div>
+                        
+                        <!-- Plan 3 -->
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3 class="plan-title">Закрепиться в городе</h3>
+                                <p class="plan-subtitle">Полное сопровождение</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-value">9 990 ₽</span>
+                                <span class="price-period">единоразово</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Всё из «Быстрый старт»</li>
+                                <li><i class="fas fa-check"></i> Поиск жилья с проверкой</li>
+                                <li><i class="fas fa-check"></i> Помощь с регистрацией</li>
+                                <li><i class="fas fa-check"></i> 3 консультации юриста</li>
+                                <li><i class="fas fa-check"></i> Курс русского A2</li>
+                                <li><i class="fas fa-check"></i> Персональный менеджер</li>
+                                <li><i class="fas fa-check"></i> Гарантия поддержки 30 дней</li>
+                            </ul>
+                            <button class="btn btn-outline btn-full" onclick="selectPlan('settle_city', 9990)">
+                                <i class="fas fa-star"></i>
+                                Купить
+                            </button>
+                        </div>
+                        
+                        <!-- Plan 4 -->
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3 class="plan-title">Premium Подписка</h3>
+                                <p class="plan-subtitle">Ежемесячный доступ</p>
+                            </div>
+                            <div class="plan-price">
+                                <span class="price-value">990 ₽</span>
+                                <span class="price-period">в месяц</span>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Безлимитный доступ ко всем сервисам</li>
+                                <li><i class="fas fa-check"></i> Приоритетная поддержка 24/7</li>
+                                <li><i class="fas fa-check"></i> Скидки на курсы до 30%</li>
+                                <li><i class="fas fa-check"></i> Ранний доступ к вакансиям</li>
+                                <li><i class="fas fa-check"></i> Отмена в любой момент</li>
+                                <li><i class="fas fa-check"></i> VIP-статус в сообществе</li>
+                                <li><i class="fas fa-check"></i> Эксклюзивные материалы</li>
+                            </ul>
+                            <button class="btn btn-outline btn-full" onclick="selectPlan('premium_monthly', 990)">
+                                <i class="fas fa-crown"></i>
+                                Подписаться
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional Services -->
+                    <div class="section-header">
+                        <h2>Дополнительные услуги</h2>
+                        <p>Оплатите отдельные услуги по мере необходимости</p>
+                    </div>
+                    
+                    <div class="additional-services">
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="service-info">
+                                <h4>Оформление патента</h4>
+                                <p>Помощь с документами для получения патента</p>
+                            </div>
+                            <div class="service-price">от 5 000 ₽</div>
+                            <button class="btn btn-outline btn-sm" onclick="selectService('patent', 5000)">Заказать</button>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="service-info">
+                                <h4>Курс русского A1</h4>
+                                <p>Базовый уровень для повседневного общения</p>
+                            </div>
+                            <div class="service-price">Бесплатно</div>
+                            <button class="btn btn-outline btn-sm" onclick="selectService('course_a1', 0)">Начать</button>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="service-info">
+                                <h4>Консультация юриста</h4>
+                                <p>Онлайн-консультация с миграционным юристом (1 час)</p>
+                            </div>
+                            <div class="service-price">1 500 ₽</div>
+                            <button class="btn btn-outline btn-sm" onclick="selectService('lawyer_consult', 1500)">Записаться</button>
+                        </div>
+                        
+                        <div class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="service-info">
+                                <h4>Видеоконсультация</h4>
+                                <p>Видеовстреча с юристом (1 час)</p>
+                            </div>
+                            <div class="service-price">2 500 ₽</div>
+                            <button class="btn btn-outline btn-sm" onclick="selectService('video_consult', 2500)">Записаться</button>
+                        </div>
+                    </div>
+
+                    <!-- Payment History -->
+                    <div class="section-header">
+                        <h2>История платежей</h2>
+                        <a href="#" class="view-all">Все транзакции <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    
+                    <div class="payment-history">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Дата</th>
+                                    <th>Услуга</th>
+                                    <th>Сумма</th>
+                                    <th>Статус</th>
+                                    <th>Чек</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01.02.2026</td>
+                                    <td>Пакет «Быстрый старт»</td>
+                                    <td>2 990 ₽</td>
+                                    <td><span class="status-badge status-success">✓ Оплачено</span></td>
+                                    <td><button class="btn btn-sm btn-outline"><i class="fas fa-download"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>15.01.2026</td>
+                                    <td>Консультация юриста</td>
+                                    <td>1 500 ₽</td>
+                                    <td><span class="status-badge status-success">✓ Оплачено</span></td>
+                                    <td><button class="btn btn-sm btn-outline"><i class="fas fa-download"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>10.01.2026</td>
+                                    <td>Premium Подписка (январь)</td>
+                                    <td>990 ₽</td>
+                                    <td><span class="status-badge status-success">✓ Оплачено</span></td>
+                                    <td><button class="btn btn-sm btn-outline"><i class="fas fa-download"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Billing Info -->
+                    <div class="section-header">
+                        <h2>Платёжная информация</h2>
+                    </div>
+                    
+                    <div class="billing-info">
+                        <div class="billing-card">
+                            <div class="billing-header">
+                                <h4>Текущий баланс</h4>
+                                <span class="balance-amount">0 ₽</span>
+                            </div>
+                            <p>Пополните баланс для быстрых покупок</p>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                                Пополнить
+                            </button>
+                        </div>
+                        
+                        <div class="billing-card">
+                            <div class="billing-header">
+                                <h4>Активные подписки</h4>
+                                <span class="balance-amount">0</span>
+                            </div>
+                            <p>У вас нет активных подписок</p>
+                            <a href="#subscription-plans" class="btn btn-outline btn-sm">
+                                <i class="fas fa-arrow-right"></i>
+                                Выбрать
+                            </a>
+                        </div>
+                        
+                        <div class="billing-card">
+                            <div class="billing-header">
+                                <h4>Следующий платеж</h4>
+                                <span class="balance-amount">—</span>
+                            </div>
+                            <p>Нет запланированных платежей</p>
+                            <button class="btn btn-outline btn-sm" disabled>
+                                <i class="fas fa-clock"></i>
+                                Ожидание
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="payment-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h2>Оплата услуги</h2>
+            </div>
+            <div class="modal-body">
+                <div class="payment-summary">
+                    <div class="summary-row">
+                        <span>Услуга:</span>
+                        <span id="modal-service-name">—</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Сумма:</span>
+                        <span id="modal-service-amount" class="summary-amount">0 ₽</span>
+                    </div>
+                </div>
+                
+                <div class="payment-methods-select">
+                    <h4>Выберите способ оплаты</h4>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="card" checked>
+                            <div class="option-card">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Банковская карта</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="sbp">
+                            <div class="option-card">
+                                <i class="fas fa-qrcode"></i>
+                                <span>СБП</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment-method" value="yoomoney">
+                            <div class="option-card">
+                                <i class="fas fa-wallet"></i>
+                                <span>ЮMoney</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="payment-security">
+                    <i class="fas fa-shield-check"></i>
+                    <span>Платёж защищён SSL-шифрованием</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline btn-full" id="modal-cancel">Отмена</button>
+                <button class="btn btn-primary btn-full" id="modal-confirm">
+                    <i class="fas fa-lock"></i>
+                    Оплатить
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/payments.js"></script>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация — MigrantHub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="auth-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="logo-text">MigrantHub</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html">Главная</a>
+                <a href="login.html">Войти</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="auth-main">
+        <div class="auth-background"></div>
+        
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <div class="auth-logo">
+                            <div class="logo-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                        </div>
+                        <h1 class="auth-title">Регистрация</h1>
+                        <p class="auth-subtitle">Создайте аккаунт за 2 минуты</p>
+                    </div>
+                    
+                    <form id="register-form" class="auth-form">
+                        <!-- Phone -->
+                        <div class="form-group">
+                            <label for="reg-phone" class="form-label">
+                                <i class="fas fa-phone"></i>
+                                Телефон *
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="reg-phone" 
+                                name="phone" 
+                                class="form-input" 
+                                placeholder="+7 (___) ___-__-__"
+                                required
+                            >
+                            <small class="form-hint">Мы отправим код подтверждения</small>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="reg-email" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                Email
+                            </label>
+                            <input 
+                                type="email" 
+                                id="reg-email" 
+                                name="email" 
+                                class="form-input" 
+                                placeholder="example@mail.ru"
+                            >
+                        </div>
+                        
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="reg-password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Пароль *
+                            </label>
+                            <div class="password-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="reg-password" 
+                                    name="password" 
+                                    class="form-input" 
+                                    placeholder="Минимум 8 символов"
+                                    minlength="8"
+                                    required
+                                >
+                                <button type="button" class="password-toggle" id="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength" id="password-strength">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">Сложность пароля</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Confirm Password -->
+                        <div class="form-group">
+                            <label for="reg-password-confirm" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Подтвердите пароль *
+                            </label>
+                            <div class="password-wrapper">
+                                <input 
+                                    type="password" 
+                                    id="reg-password-confirm" 
+                                    name="password_confirm" 
+                                    class="form-input" 
+                                    placeholder="Повторите пароль"
+                                    required
+                                >
+                            </div>
+                            <small class="form-hint" id="password-match"></small>
+                        </div>
+                        
+                        <!-- Role Selection -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user-tag"></i>
+                                Кто вы? *
+                            </label>
+                            <div class="role-selector">
+                                <label class="role-card">
+                                    <input type="radio" name="role" value="migrant" checked>
+                                    <div class="role-icon">👤</div>
+                                    <div class="role-title">Мигрант</div>
+                                    <div class="role-desc">Поиск работы и жилья</div>
+                                </label>
+                                <label class="role-card">
+                                    <input type="radio" name="role" value="employer">
+                                    <div class="role-icon">🏢</div>
+                                    <div class="role-title">Работодатель</div>
+                                    <div class="role-desc">Поиск сотрудников</div>
+                                </label>
+                                <label class="role-card">
+                                    <input type="radio" name="role" value="landlord">
+                                    <div class="role-icon">🏠</div>
+                                    <div class="role-title">Арендодатель</div>
+                                    <div class="role-desc">Сдача жилья</div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- Country -->
+                        <div class="form-group">
+                            <label for="reg-country" class="form-label">
+                                <i class="fas fa-flag"></i>
+                                Гражданство *
+                            </label>
+                            <select id="reg-country" name="country" class="form-input" required>
+                                <option value="">Выберите страну</option>
+                                <option value="uz">🇺🇿 Узбекистан</option>
+                                <option value="tg">🇹🇯 Таджикистан</option>
+                                <option value="kg">🇰🇬 Кыргызстан</option>
+                                <option value="az">🇦🇿 Азербайджан</option>
+                                <option value="mn">🇲🇳 Монголия</option>
+                                <option value="kz">🇰🇿 Казахстан</option>
+                                <option value="other">🌍 Другое</option>
+                            </select>
+                        </div>
+                        
+                        <!-- City -->
+                        <div class="form-group">
+                            <label for="reg-city" class="form-label">
+                                <i class="fas fa-city"></i>
+                                Город пребывания
+                            </label>
+                            <input 
+                                type="text" 
+                                id="reg-city" 
+                                name="city" 
+                                class="form-input" 
+                                placeholder="Москва, СПб и т.д."
+                            >
+                        </div>
+                        
+                        <!-- Agreements -->
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agree-terms" name="agree_terms" required>
+                                <span>Согласен с <a href="#" class="link">офертой</a> и <a href="#" class="link">политикой конфиденциальности</a> *</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agree-newsletter" name="agree_newsletter">
+                                <span>Получать новости и полезные материалы</span>
+                            </label>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-full btn-lg">
+                            <i class="fas fa-user-plus"></i>
+                            Зарегистрироваться
+                        </button>
+                    </form>
+                    
+                    <div class="auth-divider">
+                        <span>или</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn social-vk">
+                            <i class="fab fa-vk"></i>
+                            <span>VK</span>
+                        </button>
+                        <button type="button" class="social-btn social-telegram">
+                            <i class="fab fa-telegram"></i>
+                            <span>Telegram</span>
+                        </button>
+                        <button type="button" class="social-btn social-google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                    </div>
+                    
+                    <div class="auth-footer">
+                        <p>Уже есть аккаунт? <a href="login.html" class="auth-link">Войти</a></p>
+                    </div>
+                    
+                    <div id="register-message" class="message"></div>
+                </div>
+                
+                <div class="auth-info">
+                    <h2>Почему MigrantHub?</h2>
+                    <ul class="auth-features">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Бесплатная базовая версия</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Поддержка на 10+ языках</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Проверенные работодатели</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Юридическая защита</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Безопасные сделки</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="auth-trust">
+                        <div class="trust-badge">
+                            <i class="fas fa-shield-check"></i>
+                            <span>5.7M+ пользователей</span>
+                        </div>
+                        <div class="trust-badge">
+                            <i class="fas fa-star"></i>
+                            <span>4.9 рейтинг</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer auth-footer-fixed">
+        <div class="container">
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 MigrantHub. Все права защищены.</p>
+                <div class="footer-legal">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Оферта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
