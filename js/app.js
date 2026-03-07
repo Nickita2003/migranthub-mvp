@@ -64,6 +64,27 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
 });
 
+// ===== НОВАЯ ФУНКЦИЯ: Переключение языка =====
+function setLanguage(lang) {
+    const t = translations[lang] || translations.ru;
+    
+    // Обновляем все элементы с data-translate
+    document.querySelectorAll('[data-translate]').forEach(el => {
+        const key = el.getAttribute('data-translate');
+        if (t[key]) {
+            // Если ключ содержит HTML (например, <span>), используем innerHTML
+            if (key.includes('title') && t[key].includes('<')) {
+                el.innerHTML = t[key];
+            } else {
+                el.textContent = t[key];
+            }
+        }
+    });
+    
+    // Обновляем атрибут lang у html
+    document.documentElement.lang = lang;
+}
+
 // Header Scroll Effect
 function initHeader() {
     const header = document.getElementById('header');
@@ -88,8 +109,10 @@ function initMobileMenu() {
     toggle.addEventListener('click', () => {
         menu.classList.toggle('active');
         const icon = toggle.querySelector('i');
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+        if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
     });
 }
 
@@ -98,10 +121,10 @@ function initLanguageSwitcher() {
     const selector = document.getElementById('language-selector');
     if (!selector) return;
     
-    // НЕ добавляем опции, а просто читаем выбранный
+    // Читаем сохранённый язык
     const savedLang = localStorage.getItem('migranthub_lang') || 'ru';
     selector.value = savedLang;
-    setLanguage(savedLang);
+    setLanguage(savedLang); // <-- Теперь эта функция есть!
     
     selector.addEventListener('change', (e) => {
         const lang = e.target.value;
@@ -109,7 +132,6 @@ function initLanguageSwitcher() {
         localStorage.setItem('migranthub_lang', lang);
     });
 }
-    
 
 // Smooth Scroll
 function initSmoothScroll() {
