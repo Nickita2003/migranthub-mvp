@@ -5490,3 +5490,29 @@ input:checked + .toggle-slider:before {
         padding: 20px 16px;
     }
 }
+
+/* Исправление перекрытия текста */
+.feature-card,
+.stat-card,
+.step-card,
+.service-card,
+.topic-card,
+.news-card,
+.housing-card,
+.job-card,
+.plan-card,
+.mentor-card,
+.document-card,
+.session-item,
+.toggle-setting,
+.danger-item {
+    background: rgba(255, 255, 255, 0.95) !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* Убираем белые фоны у карточек в stats секции */
+.stats .stat-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+}
