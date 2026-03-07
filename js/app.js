@@ -109,6 +109,7 @@ function initLanguageSwitcher() {
         localStorage.setItem('migranthub_lang', lang);
     });
 }
+    
 
 // Smooth Scroll
 function initSmoothScroll() {
