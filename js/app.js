@@ -98,6 +98,7 @@ function initLanguageSwitcher() {
     const selector = document.getElementById('language-selector');
     if (!selector) return;
     
+    // НЕ добавляем опции, а просто читаем выбранный
     const savedLang = localStorage.getItem('migranthub_lang') || 'ru';
     selector.value = savedLang;
     setLanguage(savedLang);
@@ -107,19 +108,6 @@ function initLanguageSwitcher() {
         setLanguage(lang);
         localStorage.setItem('migranthub_lang', lang);
     });
-}
-
-function setLanguage(lang) {
-    const t = translations[lang] || translations.ru;
-    
-    document.querySelectorAll('[data-translate]').forEach(el => {
-        const key = el.getAttribute('data-translate');
-        if (t[key]) {
-            el.innerHTML = t[key];
-        }
-    });
-    
-    document.documentElement.lang = lang;
 }
 
 // Smooth Scroll
