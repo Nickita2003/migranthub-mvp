@@ -127,6 +127,10 @@ console.log('✅ Auth module initialized');
 
 // ===== REGISTRATION FORM =====
 document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
     initRegisterForm();
     initPasswordStrength();
     initPasswordMatch();
@@ -295,4 +299,5 @@ function simulateRegister(phone, email, password, role, country, city, messageDi
             window.location.href = 'dashboard.html';
         }, 1500);
     }, 2000);
+
 }
