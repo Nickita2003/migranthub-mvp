@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MigrantHub — Единая экосистема для легальной адаптации мигрантов в РФ. Поиск работы, жилья и юридическая защита.">
+    <meta name="keywords" content="мигранты, работа, жильё, легализация, Россия, патент, документы">
     <title>MigrantHub — Единая экосистема для мигрантов в РФ</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/logo.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Styles -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- ==================== HEADER ==================== -->
     <header class="header" id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -28,33 +33,39 @@
             </a>
             
             <nav class="nav-menu" id="nav-menu">
-                <a href="#features" class="nav-link">Возможности</a>
-                <a href="#stats" class="nav-link">Статистика</a>
-                <a href="#how-it-works" class="nav-link">Как это работает</a>
+                <a href="#features" class="nav-link" data-translate="nav-features">Возможности</a>
+                <a href="#stats" class="nav-link" data-translate="nav-stats">Статистика</a>
+                <a href="#how-it-works" class="nav-link" data-translate="nav-how">Как это работает</a>
+                <a href="#about" class="nav-link" data-translate="nav-about">О проекте</a>
             </nav>
             
             <div class="header-actions">
                 <select class="language-selector" id="language-selector">
-                    <option value="ru"> RU</option>
-                    <option value="uz"> UZ</option>
-                    <option value="tg"> TG</option>
-                    <option value="en"> EN</option>
-                    <option value="kg"> KG</option>
+                    <option value="ru">🇷🇺 RU</option>
+                    <option value="uz">🇺🇿 UZ</option>
+                    <option value="tg">🇹🇯 TG</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="kg">🇰🇬 KG</option>
+                    <option value="az">🇦🇿 AZ</option>
+                    <option value="mn">🇲🇳 MN</option>
+                    <option value="zh">🇨🇳 ZH</option>
+                    <option value="ar">🇸🇦 AR</option>
+                    <option value="tr">🇹🇷 TR</option>
                 </select>
                 
                 <div class="auth-buttons">
-                    <a href="login.html" class="btn btn-outline">Войти</a>
-                    <a href="register.html" class="btn btn-primary">Регистрация</a>
+                    <a href="login.html" class="btn btn-outline" data-translate="btn-login">Войти</a>
+                    <a href="register.html" class="btn btn-primary" data-translate="btn-register">Регистрация</a>
                 </div>
                 
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Меню">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ==================== HERO SECTION ==================== -->
     <section class="hero" id="hero">
         <div class="hero-background"></div>
         
@@ -62,23 +73,23 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <i class="fas fa-shield-check"></i>
-                    <span>Проверенная платформа</span>
+                    <span data-translate="hero-badge">Проверенная платформа</span>
                 </div>
                 
-                <h1 class="hero-title">
+                <h1 class="hero-title" data-translate="hero-title">
                     Единая экосистема для <span class="highlight">легальной адаптации</span> мигрантов в РФ
                 </h1>
                 
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-translate="hero-subtitle">
                     Поиск работы, жилья и юридическая защита в одном приложении на родном языке.
                 </p>
                 
                 <div class="hero-cta">
-                    <a href="register.html" class="btn btn-primary btn-lg">
+                    <a href="register.html" class="btn btn-primary btn-lg" data-translate="btn-start">
                         <i class="fas fa-rocket"></i>
                         Начать сейчас
                     </a>
-                    <a href="#features" class="btn btn-white btn-lg">
+                    <a href="#features" class="btn btn-white btn-lg" data-translate="btn-learn">
                         <i class="fas fa-play-circle"></i>
                         Узнать больше
                     </a>
@@ -87,15 +98,15 @@
                 <div class="hero-stats">
                     <div class="hero-stat-item">
                         <span class="stat-value">5.7M+</span>
-                        <span class="stat-label">Пользователей</span>
+                        <span class="stat-label" data-translate="stat-users">Пользователей</span>
                     </div>
                     <div class="hero-stat-item">
                         <span class="stat-value">10+</span>
-                        <span class="stat-label">Языков</span>
+                        <span class="stat-label" data-translate="stat-languages">Языков</span>
                     </div>
                     <div class="hero-stat-item">
                         <span class="stat-value">80%</span>
-                        <span class="stat-label">Успех</span>
+                        <span class="stat-label" data-translate="stat-success">Успех</span>
                     </div>
                 </div>
             </div>
@@ -138,13 +149,13 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- ==================== FEATURES SECTION ==================== -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Возможности</span>
-                <h2 class="section-title">Всё что нужно для жизни в России</h2>
-                <p class="section-subtitle">Комплексная поддержка на каждом этапе</p>
+                <span class="section-badge" data-translate="section-features">Возможности</span>
+                <h2 class="section-title" data-translate="section-features-title">Всё что нужно для жизни в России</h2>
+                <p class="section-subtitle" data-translate="section-features-subtitle">Комплексная поддержка на каждом этапе</p>
             </div>
             
             <div class="features-grid">
@@ -152,15 +163,15 @@
                     <div class="feature-icon-wrapper">
                         <i class="fas fa-briefcase"></i>
                     </div>
-                    <h3 class="feature-title">Работа и жильё</h3>
-                    <p class="feature-description">Проверенные вакансии и жильё с верификацией</p>
+                    <h3 class="feature-title" data-translate="feature-work-title">Работа и жильё</h3>
+                    <p class="feature-description" data-translate="feature-work-desc">Проверенные вакансии и жильё с верификацией</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Верификация работодателей</li>
-                        <li><i class="fas fa-check"></i> Защита от мошенников</li>
-                        <li><i class="fas fa-check"></i> Отзывы и рейтинги</li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-work-1">Верификация работодателей</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-work-2">Защита от мошенников</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-work-3">Отзывы и рейтинги</span></li>
                     </ul>
                     <a href="jobs.html" class="feature-link">
-                        Подробнее <i class="fas fa-arrow-right"></i>
+                        <span data-translate="feature-more">Подробнее</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -168,15 +179,15 @@
                     <div class="feature-icon-wrapper">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3 class="feature-title">Обучение</h3>
-                    <p class="feature-description">Курсы русского языка и подготовка к экзаменам</p>
+                    <h3 class="feature-title" data-translate="feature-learning-title">Обучение</h3>
+                    <p class="feature-description" data-translate="feature-learning-desc">Курсы русского языка и подготовка к экзаменам</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Курсы A1-B2</li>
-                        <li><i class="fas fa-check"></i> Экзамены на патент</li>
-                        <li><i class="fas fa-check"></i> Сертификаты</li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-learning-1">Курсы A1-B2</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-learning-2">Экзамены на патент</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-learning-3">Сертификаты</span></li>
                     </ul>
                     <a href="courses.html" class="feature-link">
-                        Подробнее <i class="fas fa-arrow-right"></i>
+                        <span data-translate="feature-more">Подробнее</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -184,15 +195,15 @@
                     <div class="feature-icon-wrapper">
                         <i class="fas fa-balance-scale"></i>
                     </div>
-                    <h3 class="feature-title">Юридическая поддержка</h3>
-                    <p class="feature-description">Онлайн-консультации с миграционными юристами</p>
+                    <h3 class="feature-title" data-translate="feature-legal-title">Юридическая поддержка</h3>
+                    <p class="feature-description" data-translate="feature-legal-desc">Онлайн-консультации с миграционными юристами</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Консультации 24/7</li>
-                        <li><i class="fas fa-check"></i> Оформление документов</li>
-                        <li><i class="fas fa-check"></i> Видеовстречи</li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-legal-1">Консультации 24/7</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-legal-2">Оформление документов</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-legal-3">Видеовстречи</span></li>
                     </ul>
                     <a href="legal.html" class="feature-link">
-                        Подробнее <i class="fas fa-arrow-right"></i>
+                        <span data-translate="feature-more">Подробнее</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 
@@ -200,28 +211,28 @@
                     <div class="feature-icon-wrapper">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="feature-title">Сообщество</h3>
-                    <p class="feature-description">Форумы и чаты для обмена опытом</p>
+                    <h3 class="feature-title" data-translate="feature-community-title">Сообщество</h3>
+                    <p class="feature-description" data-translate="feature-community-desc">Форумы и чаты для обмена опытом</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> Форумы по странам</li>
-                        <li><i class="fas fa-check"></i> Чаты поддержки</li>
-                        <li><i class="fas fa-check"></i> Наставничество</li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-community-1">Форумы по странам</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-community-2">Чаты поддержки</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="feature-community-3">Наставничество</span></li>
                     </ul>
                     <a href="community.html" class="feature-link">
-                        Подробнее <i class="fas fa-arrow-right"></i>
+                        <span data-translate="feature-more">Подробнее</span> <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- ==================== STATS SECTION ==================== -->
     <section class="stats" id="stats">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge section-badge-light">Масштаб проблемы</span>
-                <h2 class="section-title section-title-light">Почему MigrantHub необходим</h2>
-                <p class="section-subtitle section-subtitle-light">Данные МВД РФ, 2024-2026</p>
+                <span class="section-badge section-badge-light" data-translate="section-stats">Масштаб проблемы</span>
+                <h2 class="section-title section-title-light" data-translate="section-stats-title">Почему MigrantHub необходим</h2>
+                <p class="section-subtitle section-subtitle-light" data-translate="section-stats-subtitle">Данные МВД РФ, 2024-2026</p>
             </div>
             
             <div class="stats-grid">
@@ -230,7 +241,7 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="stat-value">5,7 млн</div>
-                    <div class="stat-label">Иностранцев в РФ</div>
+                    <div class="stat-label" data-translate="stat-migrants">Иностранцев в РФ</div>
                     <div class="stat-source">МВД РФ, 2026</div>
                 </div>
                 
@@ -239,7 +250,7 @@
                         <i class="fas fa-plane-departure"></i>
                     </div>
                     <div class="stat-value">70+ тыс.</div>
-                    <div class="stat-label">Выдворено за нарушения</div>
+                    <div class="stat-label" data-translate="stat-deported">Выдворено за нарушения</div>
                     <div class="stat-source">МВД РФ, 2025</div>
                 </div>
                 
@@ -248,7 +259,7 @@
                         <i class="fas fa-ruble-sign"></i>
                     </div>
                     <div class="stat-value">3,1 трлн ₽</div>
-                    <div class="stat-label">Ущерб бюджету</div>
+                    <div class="stat-label" data-translate="stat-damage">Ущерб бюджету</div>
                     <div class="stat-source">Счётная палата</div>
                 </div>
                 
@@ -257,20 +268,20 @@
                         <i class="fas fa-language"></i>
                     </div>
                     <div class="stat-value">68%</div>
-                    <div class="stat-label">Не знают русский (A2)</div>
+                    <div class="stat-label" data-translate="stat-language">Не знают русский (A2)</div>
                     <div class="stat-source">ВШЭ, 2024</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- ==================== HOW IT WORKS ==================== -->
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">Процесс</span>
-                <h2 class="section-title">Как это работает</h2>
-                <p class="section-subtitle">3 простых шага к легальной жизни</p>
+                <span class="section-badge" data-translate="section-how">Процесс</span>
+                <h2 class="section-title" data-translate="section-how-title">Как это работает</h2>
+                <p class="section-subtitle" data-translate="section-how-subtitle">3 простых шага к легальной жизни</p>
             </div>
             
             <div class="steps-grid">
@@ -279,8 +290,8 @@
                     <div class="step-icon-wrapper">
                         <i class="fas fa-user-plus"></i>
                     </div>
-                    <h3 class="step-title">Регистрация</h3>
-                    <p class="step-description">Создайте аккаунт за 2 минуты</p>
+                    <h3 class="step-title" data-translate="step-1-title">Регистрация</h3>
+                    <p class="step-description" data-translate="step-1-desc">Создайте аккаунт за 2 минуты</p>
                 </div>
                 
                 <div class="step-card">
@@ -288,8 +299,8 @@
                     <div class="step-icon-wrapper">
                         <i class="fas fa-search"></i>
                     </div>
-                    <h3 class="step-title">Поиск</h3>
-                    <p class="step-description">Найдите работу и жильё</p>
+                    <h3 class="step-title" data-translate="step-2-title">Поиск</h3>
+                    <p class="step-description" data-translate="step-2-desc">Найдите работу и жильё</p>
                 </div>
                 
                 <div class="step-card">
@@ -297,21 +308,21 @@
                     <div class="step-icon-wrapper">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <h3 class="step-title">Легализация</h3>
-                    <p class="step-description">Оформите документы</p>
+                    <h3 class="step-title" data-translate="step-3-title">Легализация</h3>
+                    <p class="step-description" data-translate="step-3-desc">Оформите документы</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- ==================== CTA SECTION ==================== -->
     <section class="cta" id="about">
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Готовы начать?</h2>
-                <p class="cta-subtitle">Присоединяйтесь к тысячам мигрантов</p>
+                <h2 class="cta-title" data-translate="cta-title">Готовы начать?</h2>
+                <p class="cta-subtitle" data-translate="cta-subtitle">Присоединяйтесь к тысячам мигрантов</p>
                 <div class="cta-buttons">
-                    <a href="register.html" class="btn btn-white btn-lg">
+                    <a href="register.html" class="btn btn-white btn-lg" data-translate="cta-button">
                         <i class="fas fa-rocket"></i>
                         Зарегистрироваться бесплатно
                     </a>
@@ -320,7 +331,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ==================== FOOTER ==================== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -375,8 +386,8 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ==================== JAVASCRIPT ==================== -->
     <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
 </body>
-
 </html>
